@@ -14,11 +14,9 @@ export function ArticleEditor() {
   const [status, setStatus] = useState('draft');
   const [featuredImage, setFeaturedImage] = useState('');
   const [showPlusMenu, setShowPlusMenu] = useState(false);
-  const [plusMenuPosition, setPlusMenuPosition] = useState({ top: 0 });
   const [showToolbar, setShowToolbar] = useState(false);
   const [toolbarPosition, setToolbarPosition] = useState({ top: 0, left: 0 });
   const [showMetadata, setShowMetadata] = useState(false);
-  const [isContentEmpty, setIsContentEmpty] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const articleId = window.location.pathname.split('/').pop();
@@ -35,13 +33,7 @@ export function ArticleEditor() {
     return () => document.removeEventListener('selectionchange', handleSelectionChange);
   }, []);
 
-  useEffect(() => {
-    // Check if content is empty to show/hide plus button
-    if (contentRef.current) {
-      const text = contentRef.current.innerText.trim();
-      setIsContentEmpty(text.length === 0);
-    }
-  }, [content]);
+
 
   const fetchArticle = async (id: string) => {
     try {
@@ -270,7 +262,6 @@ export function ArticleEditor() {
               onInput={(e) => {
                 const newContent = e.currentTarget.innerHTML;
                 setContent(newContent);
-                setIsContentEmpty(e.currentTarget.innerText.trim().length === 0);
               }}
               data-placeholder="Tell your story..."
             />

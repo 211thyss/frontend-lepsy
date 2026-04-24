@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AdminLayout } from '../../components/AdminLayout';
+import { API_URL } from '../../config/api';
 import './Appointments.css';
 
 export function Profile() {
@@ -40,7 +41,7 @@ export function Profile() {
 
   const fetchFullProfile = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/auth/profile', {
+      const response = await fetch(`${API_URL}/api/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ export function Profile() {
 
       // Envoyer au backend
       try {
-        const response = await fetch(`${API_URL}/api/admin/profile/avatar', {
+        const response = await fetch(`${API_URL}/api/admin/profile/avatar`, {
           method: 'PATCH',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -107,7 +108,7 @@ export function Profile() {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/admin/profile/info', {
+      const response = await fetch(`${API_URL}/api/admin/profile/info`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -149,7 +150,7 @@ export function Profile() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/api/admin/profile/password', {
+      const response = await fetch(`${API_URL}/api/admin/profile/password`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,

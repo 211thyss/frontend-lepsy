@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AdminLayout } from '../../components/AdminLayout';
+import { API_URL } from '../../config/api';
 import './Appointments.css';
 
 interface Patient {
@@ -27,7 +28,7 @@ export function Patients() {
   const fetchPatients = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${API_URL}/api/admin/patients', {
+      const response = await fetch(`${API_URL}/api/admin/patients`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

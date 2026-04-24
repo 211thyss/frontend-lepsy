@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { API_URL } from '../../config/api';
 import './Login.css';
 
 type Mode = 'login' | 'register';
@@ -56,14 +57,6 @@ export function Login() {
     }
     if (!/[!@#$%^&*]/.test(password)) {
       return 'Le mot de passe doit contenir au moins un caractère spécial (!@#$%^&*)';
-    }
-    return null;
-  };
-
-  const validateAdeliNumber = (adeli: string): string | null => {
-    const digits = adeli.replace(/\s/g, '');
-    if (!/^\d{9}$/.test(digits)) {
-      return 'Le numéro ADELI doit contenir exactement 9 chiffres';
     }
     return null;
   };

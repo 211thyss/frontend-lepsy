@@ -241,7 +241,7 @@ function Step3Format({ onSelect, onBack }: { onSelect: (format: 'in_person' | 'v
 }
 
 // Step 4: Custom Calendar
-function Step4Calendar({ onSelect, onBack, providerId }: { onSelect: (date: Date, time: string) => void; onBack: () => void; providerId: string }) {
+function Step4Calendar({ onSelect, onBack }: { onSelect: (date: Date, time: string) => void; onBack: () => void; providerId: string }) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());

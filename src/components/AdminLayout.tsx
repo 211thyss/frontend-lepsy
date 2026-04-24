@@ -10,9 +10,6 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const { provider, logout } = useAuth();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
-  const isSuperAdmin = provider?.role === 'super_admin';
-  const isAdmin = provider?.role === 'admin' || isSuperAdmin;
-
   const menuItems = [
     {
       id: 'dashboard',

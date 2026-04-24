@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AdminLayout } from '../../components/AdminLayout';
 import { useAuth } from '../../contexts/AuthContext';
+import { API_URL } from '../../config/api';
 import './Users.css';
 
 interface User {
@@ -50,7 +51,7 @@ export function Users() {
       if (roleFilter !== 'all') params.append('role', roleFilter);
       if (searchTerm) params.append('search', searchTerm);
 
-      const response = await fetch(`http://localhost:5000/api/admin/users?${params}`, {
+      const response = await fetch(`${API_URL}/api/admin/users?${params}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -70,7 +71,7 @@ export function Users() {
   const fetchAuditLogs = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_URL}/api/admin/users/audit-logs?limit=50', {
+      const response = await fetch(`${API_URL}/api/admin/users/audit-logs?limit=50`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -97,7 +98,7 @@ export function Users() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/users/${userId}/role`, {
+      const response = await fetch(`${API_URL}/api/admin/users/${userId}/role`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -124,7 +125,7 @@ export function Users() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/users/${userId}/status`, {
+      const response = await fetch(`${API_URL}/api/admin/users/${userId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -154,7 +155,7 @@ export function Users() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/users/${userId}`, {
+      const response = await fetch(`${API_URL}/api/admin/users/${userId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -306,7 +307,7 @@ export function Users() {
                         className={getRoleBadgeClass(user.role)}
                         value={user.role}
                         onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                        disabled={user.id === provider?.id}
+                        disabled={user.id === Number(provider?.id)}
                       >
                         <option value="patient">Patient</option>
                         <option value="admin">Administrateur</option>
@@ -330,7 +331,7 @@ export function Users() {
                       <button
                         className={`action-btn ${user.isActive ? 'deactivate' : 'activate'}`}
                         onClick={() => handleToggleStatus(user.id, user.isActive)}
-                        disabled={user.id === provider?.id}
+                        disabled={user.id === Number(provider?.id)}
                         title={user.isActive ? 'Désactiver' : 'Activer'}
                       >
                         {user.isActive ? '🚫' : '✓'}
@@ -338,7 +339,7 @@ export function Users() {
                       <button
                         className="action-btn delete"
                         onClick={() => handleDeleteUser(user.id, `${user.firstName} ${user.lastName}`)}
-                        disabled={user.id === provider?.id}
+                        disabled={user.id === Number(provider?.id)}
                         title="Supprimer"
                       >
                         🗑️

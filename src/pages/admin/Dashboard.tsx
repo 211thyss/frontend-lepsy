@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AdminLayout } from '../../components/AdminLayout';
+import { API_URL } from '../../config/api';
 import './Dashboard.css';
 
 interface Stats {
@@ -44,7 +45,7 @@ export function Dashboard() {
         setError(null);
 
         // Fetch stats
-        const statsResponse = await fetch(`${API_URL}/api/dashboard/stats', {
+        const statsResponse = await fetch(`${API_URL}/api/dashboard/stats`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -59,7 +60,7 @@ export function Dashboard() {
         setStats(statsData);
 
         // Fetch today's appointments
-        const appointmentsResponse = await fetch(`${API_URL}/api/dashboard/today', {
+        const appointmentsResponse = await fetch(`${API_URL}/api/dashboard/today`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',

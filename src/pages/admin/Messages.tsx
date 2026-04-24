@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AdminLayout } from '../../components/AdminLayout';
+import { API_URL } from '../../config/api';
 import './Appointments.css';
 
 interface Message {
@@ -28,8 +29,8 @@ export function Messages() {
     try {
       setIsLoading(true);
       const url = filter === 'all' 
-        ? `${API_URL}/api/admin/messages'
-        : `http://localhost:5000/api/admin/messages?status=${filter}`;
+        ? `${API_URL}/api/admin/messages`
+        : `${API_URL}/api/admin/messages?status=${filter}`;
 
       const response = await fetch(url, {
         headers: {
@@ -51,7 +52,7 @@ export function Messages() {
 
   const markAsRead = async (id: string) => {
     try {
-      await fetch(`http://localhost:5000/api/admin/messages/${id}/read`, {
+      await fetch(`${API_URL}/api/admin/messages/${id}/read`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -66,7 +67,7 @@ export function Messages() {
 
   const markAsReplied = async (id: string) => {
     try {
-      await fetch(`http://localhost:5000/api/admin/messages/${id}/replied`, {
+      await fetch(`${API_URL}/api/admin/messages/${id}/replied`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,

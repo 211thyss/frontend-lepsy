@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AdminLayout } from '../../components/AdminLayout';
+import { API_URL } from '../../config/api';
 import './Appointments.css';
 
 interface Appointment {
@@ -34,8 +35,8 @@ export function Appointments() {
     try {
       setIsLoading(true);
       const url = filter === 'all' 
-        ? `${API_URL}/api/admin/appointments'
-        : `http://localhost:5000/api/admin/appointments?status=${filter}`;
+        ? `${API_URL}/api/admin/appointments`
+        : `${API_URL}/api/admin/appointments?status=${filter}`;
 
       const response = await fetch(url, {
         headers: {
