@@ -27,7 +27,7 @@ export function Patients() {
   const fetchPatients = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://localhost:5000/api/admin/patients', {
+      const response = await fetch(`${API_URL}/api/admin/patients', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

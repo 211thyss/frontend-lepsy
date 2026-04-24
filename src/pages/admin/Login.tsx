@@ -147,7 +147,7 @@ export function Login() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -248,7 +248,7 @@ export function Login() {
                   value={formData.email}
                   onChange={(e) => handleFieldChange('email', e.target.value)}
                   className="login-input"
-                  placeholder="theo@gichtenaere.fr"
+                  placeholder="votre.email@exemple.fr"
                   required
                   autoComplete="email"
                   disabled={isLoading}
@@ -325,9 +325,7 @@ export function Login() {
               {mode === 'login' ? (
                 <>
                   <p className="login-footer-text">
-                    Identifiants par défaut :<br />
-                    <strong>theo@gichtenaere.fr</strong> / ChangeMe2024!<br />
-                    <strong>cloe@gichtenaere.fr</strong> / ChangeMe2024!
+                    Connectez-vous avec vos identifiants
                   </p>
                   <button 
                     className="login-mode-toggle"

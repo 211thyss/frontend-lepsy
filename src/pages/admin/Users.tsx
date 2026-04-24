@@ -70,7 +70,7 @@ export function Users() {
   const fetchAuditLogs = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/admin/users/audit-logs?limit=50', {
+      const response = await fetch(`${API_URL}/api/admin/users/audit-logs?limit=50', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

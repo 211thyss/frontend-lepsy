@@ -28,7 +28,7 @@ export function Messages() {
     try {
       setIsLoading(true);
       const url = filter === 'all' 
-        ? 'http://localhost:5000/api/admin/messages'
+        ? `${API_URL}/api/admin/messages'
         : `http://localhost:5000/api/admin/messages?status=${filter}`;
 
       const response = await fetch(url, {

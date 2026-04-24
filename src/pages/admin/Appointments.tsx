@@ -34,7 +34,7 @@ export function Appointments() {
     try {
       setIsLoading(true);
       const url = filter === 'all' 
-        ? 'http://localhost:5000/api/admin/appointments'
+        ? `${API_URL}/api/admin/appointments'
         : `http://localhost:5000/api/admin/appointments?status=${filter}`;
 
       const response = await fetch(url, {

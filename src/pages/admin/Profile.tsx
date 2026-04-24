@@ -40,7 +40,7 @@ export function Profile() {
 
   const fetchFullProfile = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/profile', {
+      const response = await fetch(`${API_URL}/api/auth/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export function Profile() {
 
       // Envoyer au backend
       try {
-        const response = await fetch('http://localhost:5000/api/admin/profile/avatar', {
+        const response = await fetch(`${API_URL}/api/admin/profile/avatar', {
           method: 'PATCH',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -107,7 +107,7 @@ export function Profile() {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/profile/info', {
+      const response = await fetch(`${API_URL}/api/admin/profile/info', {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -149,7 +149,7 @@ export function Profile() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/profile/password', {
+      const response = await fetch(`${API_URL}/api/admin/profile/password', {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
