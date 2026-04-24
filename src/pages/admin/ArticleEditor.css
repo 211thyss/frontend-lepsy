@@ -1,0 +1,394 @@
+.medium-editor {
+  min-height: 100vh;
+  background: white;
+}
+
+.medium-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.back-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-text:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 99em;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #1a8917;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #156d13;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.medium-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 200px;
+}
+
+.title-wrapper {
+  position: relative;
+}
+
+.title-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 42px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.84);
+  font-family: 'Georgia', serif;
+  padding: 0;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.title-input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.editor-wrapper {
+  position: relative;
+  margin-top: 32px;
+}
+
+.plus-btn {
+  position: absolute;
+  left: -48px;
+  top: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: white;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.plus-btn:hover {
+  border-color: rgba(0, 0, 0, 0.84);
+  color: rgba(0, 0, 0, 0.84);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.plus-menu-horizontal {
+  position: absolute;
+  left: -48px;
+  top: 52px;
+  display: flex;
+  gap: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  z-index: 20;
+  animation: fadeIn 0.15s ease;
+}
+
+.plus-menu-horizontal button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.plus-menu-horizontal button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.plus-menu-horizontal button svg {
+  flex-shrink: 0;
+}
+
+.content-editable {
+  min-height: 200px;
+  outline: none;
+  font-size: 21px;
+  line-height: 1.58;
+  color: rgba(0, 0, 0, 0.84);
+  font-family: 'Georgia', serif;
+  word-break: break-word;
+  padding-top: 8px;
+}
+
+.content-editable:empty:before {
+  content: attr(data-placeholder);
+  color: rgba(0, 0, 0, 0.3);
+  font-style: italic;
+}
+
+.content-editable:focus:empty:before {
+  content: "Tell your story...";
+}
+
+.content-editable p {
+  margin: 0 0 1.58em 0;
+  min-height: 1.58em;
+}
+
+.content-editable h1,
+.content-editable h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 1.52em 0 0.46em 0;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.content-editable h3 {
+  font-size: 26px;
+  line-height: 1.22;
+  margin: 1.52em 0 0.46em 0;
+  font-weight: 600;
+}
+
+.content-editable img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.58em 0;
+  display: block;
+}
+
+.content-editable .video-embed {
+  margin: 1.58em 0;
+}
+
+.content-editable .embed-content {
+  margin: 1.58em 0;
+  padding-left: 1em;
+  border-left: 3px solid #2a4538;
+}
+
+.content-editable a {
+  color: #2a4538;
+  text-decoration: underline;
+}
+
+.content-editable strong {
+  font-weight: 600;
+}
+
+.content-editable em {
+  font-style: italic;
+}
+
+.content-editable ul,
+.content-editable ol {
+  margin: 1.58em 0;
+  padding-left: 2em;
+}
+
+.content-editable li {
+  margin-bottom: 0.5em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.format-toolbar {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  padding: 4px;
+  display: flex;
+  gap: 2px;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease;
+}
+
+.format-toolbar button {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.format-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.metadata-panel {
+  margin-top: 64px;
+  padding: 32px;
+  background: #fafafa;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.metadata-panel h3 {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.84);
+  margin: 0 0 24px 0;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.84);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .medium-content {
+    padding: 32px 16px 120px;
+  }
+
+  .title-input {
+    font-size: 32px;
+  }
+
+  .plus-btn {
+    left: -40px;
+  }
+
+  .plus-menu-horizontal {
+    left: -40px;
+  }
+
+  .content-editable {
+    font-size: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

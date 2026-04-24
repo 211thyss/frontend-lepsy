@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --green-950: #0d1f14;
+    --green-900: #14532d;
+    --green-800: #166534;
+    --green-700: #15803d;
+    --green-600: #16a34a;
+    --green-500: #22c55e;
+    --green-400: #4ade80;
+    --green-200: #bbf7d0;
+    --green-100: #dcfce7;
+    --cream: #f7faf5;
+    --hero-slate: #2a4538;
+    --hero-olive: #5a6b4a;
+    --hero-olive-mid: #6d7f5c;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Outfit", system-ui, sans-serif;
+    --font-steps-italic: "Libre Baskerville", Georgia, serif;
+    
+    /* Shadcn theme variables */
+    --background: 0 0% 100%;
+    --foreground: 142 25% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 142 25% 20%;
+    --primary: 142 25% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 10% 96%;
+    --secondary-foreground: 142 25% 20%;
+    --muted: 60 10% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 60 10% 90%;
+    --accent-foreground: 142 25% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 142 15% 90%;
+    --input: 142 15% 90%;
+    --ring: 142 25% 35%;
+    --radius: 0.5rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--cream);
+  background: #f5f0e8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Skip to content link for keyboard navigation */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--hero-slate);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 10000;
+  border-radius: 0 0 0.5rem 0;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Enhanced focus-visible styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--hero-olive);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--hero-olive);
+  outline-offset: 3px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

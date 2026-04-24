@@ -1,0 +1,337 @@
+/* Scroll “long” : le bloc reste en sticky pendant le défilement */
+.hero-scroll-root {
+  min-height: 240vh;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-root {
+    min-height: auto;
+  }
+
+  .hero-sticky {
+    position: static;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0 0 clamp(4rem, 10vw, 6rem) clamp(4rem, 10vw, 6rem);
+  box-shadow: 0 16px 48px rgba(13, 31, 22, 0.14);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    border-radius: 0 0 clamp(2rem, 8vw, 3rem) clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-scroll-root {
+    min-height: 180vh;
+  }
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -6%;
+  background-image: url("/34ec78ae0ab34927ea8e9cf17c713ba5.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  transform: scale(1.06);
+  filter: blur(5px) saturate(1.06);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg {
+    filter: blur(3px) saturate(1.04);
+    transform: scale(1.03);
+  }
+}
+
+/* Brume claire en haut (comme un ciel voilé), plus dense en bas — proche de la ref “montagnes” */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(232, 241, 236, 0.5) 0%,
+      rgba(210, 228, 218, 0.22) 28%,
+      rgba(18, 48, 36, 0.45) 58%,
+      rgba(13, 31, 22, 0.82) 100%
+    ),
+    radial-gradient(ellipse 95% 65% at 50% 22%, rgba(255, 255, 255, 0.38), transparent 62%);
+  pointer-events: none;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 70% at 50% 45%, transparent 35%, rgba(13, 31, 22, 0.35) 100%);
+  pointer-events: none;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 12vh, 7rem) min(1.75rem, 5vw) clamp(2rem, 5vh, 3rem);
+}
+
+@media (max-width: 768px) {
+  .hero-layout {
+    padding: clamp(5rem, 10vh, 6rem) 1.25rem clamp(1.5rem, 4vh, 2rem);
+  }
+}
+
+.hero-inner {
+  text-align: center;
+}
+
+.hero-eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(45, 74, 62, 0.75);
+}
+
+@media (max-width: 768px) {
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+  }
+}
+
+/* Titre type ref : sans-serif vert ardoise + serif italique gris */
+.hero-headline {
+  margin: 0;
+  font-size: clamp(2.35rem, 6.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline-sans {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--hero-slate, #2a4538);
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.35);
+}
+
+/* Ligne serif : plusieurs phrases en fondu (scroll) */
+.hero-serif-line {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: min(100%, 26ch);
+  margin-inline: auto;
+  margin-top: 0.35em;
+  min-height: 2.85em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(71, 85, 105, 0.88);
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.25);
+}
+
+.hero-serif-phrase {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-serif-phrase--on {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-serif-line {
+    min-height: 0;
+  }
+
+  .hero-serif-phrase {
+    transition: none;
+  }
+
+  .hero-serif-phrase:not(.hero-serif-phrase--on) {
+    display: none;
+  }
+
+  .hero-serif-phrase--on {
+    position: relative;
+  }
+}
+
+.hero-desc {
+  margin: 1.35rem auto 0;
+  max-width: 38rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(51, 65, 58, 0.88);
+}
+
+/* Boutons CTA */
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.hero-cta--primary {
+  color: #fafaf8;
+  background: linear-gradient(180deg, var(--hero-olive-mid, #6d7f5c) 0%, var(--hero-olive, #5a6b4a) 100%);
+  box-shadow:
+    0 4px 14px rgba(45, 62, 40, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+.hero-cta--secondary {
+  color: var(--hero-slate);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 14px rgba(13, 31, 22, 0.15);
+  border: 1px solid rgba(42, 69, 56, 0.2);
+}
+
+@media (max-width: 768px) {
+  .hero-cta-group {
+    flex-direction: column;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .hero-cta {
+    padding: 0.95rem 2rem;
+    font-size: 0.95rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.hero-cta--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 22px rgba(45, 62, 40, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
+  filter: brightness(1.04);
+}
+
+.hero-cta--secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(13, 31, 22, 0.2);
+  background: rgba(255, 255, 255, 1);
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid rgba(90, 107, 74, 0.9);
+  outline-offset: 3px;
+}
+
+/* Bandeau logos discret, style ref */
+.hero-logos {
+  margin-top: auto;
+  padding-top: clamp(2.5rem, 8vh, 4rem);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hero-logos {
+    padding-top: clamp(2rem, 6vh, 3rem);
+  }
+}
+
+.hero-logos-label {
+  margin: 0 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 248, 0.45);
+}
+
+@media (max-width: 768px) {
+  .hero-logos-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.hero-logos-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-logo-item {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 248, 0.38);
+  filter: grayscale(1);
+}
+
+@media (max-width: 768px) {
+  .hero-logo-item {
+    font-size: 0.62rem;
+  }
+}

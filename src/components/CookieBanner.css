@@ -1,0 +1,260 @@
+/* Cookie overlay - centered positioning */
+.cookie-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Cookie card with shadow effect */
+.cookie-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 1.75rem;
+  border-radius: 12px;
+  position: relative;
+  animation: slideUp 0.4s ease-out;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Shadow effect - paper style */
+.cookie-card::before,
+.cookie-card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: 15px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+}
+
+.cookie-card::before {
+  left: 10px;
+  transform: rotate(-3deg);
+}
+
+.cookie-card::after {
+  right: 10px;
+  left: unset;
+  transform: rotate(3deg);
+}
+
+.cookie-title {
+  display: block;
+  color: var(--hero-slate);
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.cookie-description {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.cookie-policy-link {
+  color: var(--hero-slate);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cookie-policy-link:hover {
+  color: var(--hero-olive);
+}
+
+/* Cookie details section */
+.cookie-details {
+  background: rgba(42, 69, 56, 0.04);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cookie-category {
+  margin-bottom: 0.75rem;
+}
+
+.cookie-category:last-child {
+  margin-bottom: 0;
+}
+
+.cookie-category-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hero-slate);
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+}
+
+.cookie-category-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--hero-slate);
+}
+
+.cookie-category-label input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cookie-category-desc {
+  font-size: 0.825rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+/* Actions buttons */
+.cookie-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.cookie-prefs,
+.cookie-decline,
+.cookie-accept {
+  border: 2px solid;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  background: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cookie-prefs {
+  border-color: var(--hero-slate);
+  color: var(--hero-slate);
+  flex: 1;
+  min-width: 100%;
+}
+
+.cookie-prefs:hover {
+  background-color: var(--hero-slate);
+  color: white;
+}
+
+.cookie-decline {
+  border-color: #d32f2f;
+  color: #d32f2f;
+  flex: 1;
+}
+
+.cookie-decline:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.cookie-accept {
+  border-color: #2e7d32;
+  color: #2e7d32;
+  flex: 1;
+}
+
+.cookie-accept:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.cookie-prefs:focus-visible,
+.cookie-decline:focus-visible,
+.cookie-accept:focus-visible {
+  outline: 3px solid var(--hero-olive);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .cookie-card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .cookie-title {
+    font-size: 1.5rem;
+  }
+
+  .cookie-description {
+    font-size: 0.9rem;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cookie-prefs,
+  .cookie-decline,
+  .cookie-accept {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .cookie-card::before,
+  .cookie-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .cookie-overlay {
+    padding: 0.5rem;
+  }
+
+  .cookie-card {
+    padding: 1.25rem;
+  }
+
+  .cookie-title {
+    font-size: 1.35rem;
+  }
+}
