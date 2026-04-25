@@ -1,117 +1,114 @@
 /* ==================== PATIENT LAYOUT ==================== */
 .patient-layout {
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   background: #f9fafb;
 }
 
-/* ==================== NAVIGATION ==================== */
-.patient-nav {
-  background: white;
-  border-bottom: 2px solid #e8ebe5;
-  position: sticky;
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+  position: fixed;
+  left: 0;
   top: 0;
-  z-index: 100;
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
+  bottom: 0;
+  width: 260px;
+  background: white;
+  border-right: 2px solid #e8ebe5;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
-.nav-brand {
+.sidebar-header {
+  padding: 24px 20px;
+  border-bottom: 2px solid #e8ebe5;
+}
+
+.sidebar-logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
-.nav-logo {
-  height: 40px;
+.sidebar-logo img {
+  height: 36px;
   width: auto;
 }
 
-.nav-title {
-  font-size: 18px;
-  font-weight: 600;
+.sidebar-logo span {
+  font-size: 20px;
+  font-weight: 700;
   color: #2a4538;
 }
 
-.mobile-menu-toggle {
-  display: none;
+/* ==================== SIDEBAR NAVIGATION ==================== */
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
   background: none;
   border: none;
-  font-size: 24px;
-  color: #2a4538;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  flex: 1;
-  justify-content: space-between;
-  margin-left: 48px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  text-decoration: none;
   color: #666;
   font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
   transition: all 0.2s;
+  text-align: left;
+  width: 100%;
 }
 
-.nav-link:hover {
+.sidebar-link:hover {
   background: #f0f2ee;
   color: #2a4538;
 }
 
-.nav-link.active {
+.sidebar-link.active {
   background: linear-gradient(135deg, #5a6b4a, #4a6630);
   color: white;
 }
 
-.nav-icon {
-  font-size: 18px;
-}
-
-.nav-label {
-  white-space: nowrap;
-}
-
-/* ==================== USER MENU ==================== */
-.nav-user {
+.sidebar-icon {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
-.user-info {
+.sidebar-label {
+  flex: 1;
+}
+
+/* ==================== SIDEBAR FOOTER ==================== */
+.sidebar-footer {
+  padding: 16px 12px;
+  border-top: 2px solid #e8ebe5;
+}
+
+.sidebar-user {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #f9fafb;
 }
 
-.user-avatar {
+.sidebar-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -122,66 +119,134 @@
   justify-content: center;
   font-size: 14px;
   font-weight: 700;
+  flex-shrink: 0;
 }
 
-.user-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.sidebar-user-info {
+  flex: 1;
+  min-width: 0;
 }
 
-.user-name {
+.sidebar-user-name {
   font-size: 14px;
   font-weight: 600;
   color: #2a4538;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.user-email {
+.sidebar-user-email {
   font-size: 12px;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.btn-logout {
-  padding: 8px 16px;
+.sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: none;
   border: 2px solid #e8ebe5;
-  border-radius: 8px;
-  background: white;
   color: #666;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
-}
-
-.btn-logout:hover {
-  border-color: #c62828;
-  color: #c62828;
-}
-
-/* ==================== MAIN CONTENT ==================== */
-.patient-main {
-  flex: 1;
   width: 100%;
 }
 
+.sidebar-logout:hover {
+  border-color: #c62828;
+  color: #c62828;
+  background: #ffebee;
+}
+
+/* ==================== MAIN WRAPPER ==================== */
+.main-wrapper {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==================== TOPBAR (Mobile only) ==================== */
+.topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 2px solid #e8ebe5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #2a4538;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.topbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5a6b4a, #4a6630);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+  flex: 1;
+  padding: 0;
+}
+
 /* ==================== FOOTER ==================== */
-.patient-footer {
+.main-footer {
   background: white;
   border-top: 2px solid #e8ebe5;
   padding: 24px 0;
   margin-top: 48px;
 }
 
-.footer-container {
-  max-width: 1400px;
+.footer-content {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.footer-container p {
+.footer-content p {
   font-size: 14px;
   color: #666;
   margin: 0;
@@ -203,85 +268,47 @@
   color: #2a4538;
 }
 
+/* ==================== SIDEBAR OVERLAY (Mobile) ==================== */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
-  .nav-label {
-    display: none;
+  .sidebar {
+    transform: translateX(-100%);
   }
 
-  .nav-link {
-    padding: 10px;
+  .sidebar-open {
+    transform: translateX(0);
   }
 
-  .user-details {
-    display: none;
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+  }
+
+  .topbar {
+    display: flex;
+  }
+
+  .footer-content {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .mobile-menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: white;
-    border-bottom: 2px solid #e8ebe5;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin: 0;
-    padding: 16px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-menu.mobile-open {
-    max-height: 500px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-  }
-
-  .nav-link {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .nav-label {
-    display: inline;
-  }
-
-  .nav-user {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    padding-top: 16px;
-    border-top: 1px solid #e8ebe5;
-    margin-top: 16px;
-  }
-
-  .user-info {
-    width: 100%;
-  }
-
-  .user-details {
-    display: flex;
-    flex: 1;
-  }
-
-  .btn-logout {
-    width: 100%;
-  }
-
-  .footer-container {
+  .footer-content {
     flex-direction: column;
     gap: 16px;
     text-align: center;
