@@ -17,6 +17,7 @@ interface AuthContextType {
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  updateUser: (user: Provider) => void;
   isAuthenticated: boolean;
   isLoading: boolean;
 }
@@ -114,6 +115,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.location.href = '/';
   };
 
+  const updateUser = (user: Provider) => {
+    localStorage.setItem('provider', JSON.stringify(user));
+    setProvider(user);
+    // Déclencher un événement personnalisé pour notifier les autres composants
+    window.dispatchEvent(new Event('providerUpdated'));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -121,6 +129,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         token,
         login,
         logout,
+        updateUser,
         isAuthenticated: !!token && !!provider,
         isLoading,
       }}

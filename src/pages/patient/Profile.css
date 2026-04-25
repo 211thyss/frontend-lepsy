@@ -1,0 +1,270 @@
+/* ==================== PATIENT PROFILE ==================== */
+.patient-profile {
+  padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 3rem);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+}
+
+.profile-header h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: #2a4538;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.profile-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: rgba(42, 69, 56, 0.7);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ==================== MESSAGE BANNER ==================== */
+.message-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.message-banner.success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.message-banner.error {
+  background: rgba(198, 40, 40, 0.15);
+  color: #c62828;
+  border: 1px solid rgba(198, 40, 40, 0.3);
+}
+
+.message-banner svg {
+  flex-shrink: 0;
+}
+
+/* ==================== VERIFIED BADGE ==================== */
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1.25rem;
+  background: rgba(34, 197, 94, 0.15);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.verified-badge svg {
+  flex-shrink: 0;
+}
+
+/* ==================== PROFILE GRID ==================== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vh, 2rem);
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(42, 69, 56, 0.1);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: 0 4px 14px rgba(30, 46, 25, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(42, 69, 56, 0.1);
+}
+
+.card-header h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: #2a4538;
+  margin: 0;
+}
+
+.btn-edit {
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(42, 69, 56, 0.05);
+  border: 1px solid rgba(42, 69, 56, 0.15);
+  color: #2a4538;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-edit:hover {
+  background: rgba(42, 69, 56, 0.1);
+  border-color: rgba(90, 107, 74, 0.3);
+}
+
+/* ==================== FORM ==================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2a4538;
+}
+
+.form-group label svg {
+  color: #5a6b4a;
+  flex-shrink: 0;
+}
+
+.form-group input {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(42, 69, 56, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2a4538;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5a6b4a;
+  box-shadow: 0 0 0 3px rgba(90, 107, 74, 0.1);
+}
+
+.form-group input:disabled {
+  background: rgba(42, 69, 56, 0.03);
+  color: rgba(42, 69, 56, 0.6);
+  cursor: not-allowed;
+}
+
+.form-group small {
+  font-size: 0.8rem;
+  color: rgba(42, 69, 56, 0.6);
+  margin-top: -0.25rem;
+}
+
+/* ==================== FORM ACTIONS ==================== */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(42, 69, 56, 0.1);
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #6d7f5c 0%, #5a6b4a 100%);
+  color: #fafaf8;
+  box-shadow: 0 4px 14px rgba(90, 107, 74, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(90, 107, 74, 0.4);
+  background: linear-gradient(180deg, #7a8c69 0%, #677a57 100%);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(42, 69, 56, 0.05);
+  border: 1px solid rgba(42, 69, 56, 0.15);
+  color: #2a4538;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(42, 69, 56, 0.1);
+  border-color: rgba(90, 107, 74, 0.3);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .patient-profile {
+    padding: clamp(1.5rem, 4vh, 2rem) 1.25rem;
+  }
+
+  .profile-header h1 {
+    font-size: clamp(1.75rem, 5vw, 2rem);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .btn-edit {
+    align-self: stretch;
+    text-align: center;
+  }
+}

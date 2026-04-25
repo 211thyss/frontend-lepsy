@@ -22,6 +22,8 @@ import { Articles } from "./pages/admin/Articles";
 import { ArticleEditor } from "./pages/admin/ArticleEditor";
 import { Users } from "./pages/admin/Users";
 import { PatientDashboard } from "./pages/patient/Dashboard";
+import { PatientAppointments } from "./pages/patient/Appointments";
+import { PatientProfile } from "./pages/patient/Profile";
 import { BookingWizard } from "./components/BookingWizard";
 import { Blog } from "./pages/Blog";
 import { ArticleDetail } from "./pages/ArticleDetail";
@@ -39,6 +41,10 @@ export default function App() {
       setCurrentPage("login");
     } else if (path === "/patient/dashboard") {
       setCurrentPage("patient-dashboard");
+    } else if (path === "/patient/appointments") {
+      setCurrentPage("patient-appointments");
+    } else if (path === "/patient/profile") {
+      setCurrentPage("patient-profile");
     } else if (path === "/admin/dashboard" || path === "/admin") {
       setCurrentPage("dashboard");
     } else if (path === "/admin/appointments") {
@@ -77,6 +83,10 @@ export default function App() {
         setCurrentPage("login");
       } else if (path === "/patient/dashboard") {
         setCurrentPage("patient-dashboard");
+      } else if (path === "/patient/appointments") {
+        setCurrentPage("patient-appointments");
+      } else if (path === "/patient/profile") {
+        setCurrentPage("patient-profile");
       } else if (path === "/admin/dashboard" || path === "/admin") {
         setCurrentPage("dashboard");
       } else if (path === "/admin/appointments") {
@@ -133,6 +143,26 @@ export default function App() {
       <AuthProvider>
         <ProtectedRoute>
           <PatientDashboard />
+        </ProtectedRoute>
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "patient-appointments") {
+    return (
+      <AuthProvider>
+        <ProtectedRoute>
+          <PatientAppointments />
+        </ProtectedRoute>
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "patient-profile") {
+    return (
+      <AuthProvider>
+        <ProtectedRoute>
+          <PatientProfile />
         </ProtectedRoute>
       </AuthProvider>
     );
