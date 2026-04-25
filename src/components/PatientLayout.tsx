@@ -124,7 +124,7 @@ export function PatientLayout({ children }: PatientLayoutProps) {
 
         <footer className="main-footer">
           <div className="footer-content">
-            <p>&copy; 2024 GICHT' Gichtenaere. Tous droits réservés.</p>
+            <p>&copy; 2026 GICHT' Gichtenaere. Tous droits réservés.</p>
             <div className="footer-links">
               <a href="/legal">Mentions légales</a>
               <a href="/privacy">Confidentialité</a>
