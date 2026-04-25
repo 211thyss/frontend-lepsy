@@ -1,19 +1,11 @@
 :3010 {
     root * /app/dist
     encode gzip
+    file_server
     
-    # Serve static files directly
-    @static {
-        file
-        path *.jpg *.jpeg *.png *.gif *.svg *.ico *.css *.js *.woff *.woff2 *.ttf *.eot
+    # SPA fallback - only for non-existent files
+    @notFile {
+        not file
     }
-    handle @static {
-        file_server
-    }
-    
-    # SPA fallback for everything else
-    handle {
-        try_files {path} /index.html
-        file_server
-    }
+    rewrite @notFile /index.html
 }
