@@ -6,9 +6,10 @@ interface Provider {
   email: string;
   firstName: string;
   lastName: string;
-  title: string;
+  title?: string;
   role: string;
   avatarUrl?: string;
+  isVerified?: boolean;
 }
 
 interface AuthContextType {
@@ -32,9 +33,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const storedToken = localStorage.getItem('token');
     const storedProvider = localStorage.getItem('provider');
 
-    if (storedToken && storedProvider) {
-      setToken(storedToken);
-      setProvider(JSON.parse(storedProvider));
+    if (storedToken && storedProvider && storedProvider !== 'undefined') {
+      try {
+        setToken(storedToken);
+        setProvider(JSON.parse(storedProvider));
+      } catch (error) {
+        console.error('Error parsing stored provider:', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('provider');
+      }
     }
     setIsLoading(false);
   }, []);
@@ -43,8 +50,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const handleStorageChange = () => {
       const storedProvider = localStorage.getItem('provider');
-      if (storedProvider) {
-        setProvider(JSON.parse(storedProvider));
+      if (storedProvider && storedProvider !== 'undefined') {
+        try {
+          setProvider(JSON.parse(storedProvider));
+        } catch (error) {
+          console.error('Error parsing provider from storage:', error);
+          localStorage.removeItem('provider');
+        }
       }
     };
 
@@ -75,12 +87,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       const data = await response.json();
 
-      // Stocker le token et les infos du provider
+      // Le backend peut retourner soit "provider" soit "patient"
+      const user = data.provider || data.patient;
+      
+      if (!user) {
+        throw new Error('Réponse invalide du serveur');
+      }
+
+      // Stocker le token et les infos de l'utilisateur
       localStorage.setItem('token', data.token);
-      localStorage.setItem('provider', JSON.stringify(data.provider));
+      localStorage.setItem('provider', JSON.stringify(user));
 
       setToken(data.token);
-      setProvider(data.provider);
+      setProvider(user);
     } catch (error) {
       console.error('Login error:', error);
       throw error;
