@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { PatientLayout } from '../../components/PatientLayout';
 import { API_URL } from '../../config/api';
-import { Calendar, FileText, Settings, ChatBubble } from 'iconoir-react';
+import { Calendar, Page, Settings, ChatBubble } from 'iconoir-react';
 import './Dashboard.css';
 
 interface Appointment {
@@ -135,7 +135,7 @@ export function PatientDashboard() {
                 <span className="action-text">Prendre rendez-vous</span>
               </a>
               <a href="/patient/appointments" className="action-button">
-                <FileText width={24} height={24} strokeWidth={2} />
+                <Page width={24} height={24} strokeWidth={2} />
                 <span className="action-text">Mes rendez-vous</span>
               </a>
               <a href="/patient/profile" className="action-button">
