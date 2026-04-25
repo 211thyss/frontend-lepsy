@@ -177,11 +177,11 @@ export function Login() {
           <div className="login-header">
             <img src="/logo.png" alt="Logo GICHT'" className="login-logo" />
             <h1 className="login-title">
-              {mode === 'login' ? 'Espace Praticien' : 'Créer un compte'}
+              {mode === 'login' ? 'Connexion' : 'Créer un compte'}
             </h1>
             <p className="login-subtitle">
               {mode === 'login' 
-                ? 'Connectez-vous pour accéder à votre tableau de bord'
+                ? 'Connectez-vous à votre espace personnel'
                 : 'Inscrivez-vous pour prendre rendez-vous'}
             </p>
           </div>

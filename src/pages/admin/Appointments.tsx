@@ -21,11 +21,18 @@ interface Appointment {
   };
 }
 
+interface StatusUpdateData {
+  status: string;
+  verifyPatient?: boolean;
+}
+
 export function Appointments() {
   const { token } = useAuth();
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState('all');
+  const [selectedAppointment, setSelectedAppointment] = useState<string | null>(null);
+  const [verifyPatient, setVerifyPatient] = useState(false);
 
   useEffect(() => {
     fetchAppointments();
@@ -78,6 +85,38 @@ export function Appointments() {
       no_show: { label: 'Absent', class: 'badge-dark' },
     };
     return badges[status] || { label: status, class: 'badge-secondary' };
+  };
+
+  const updateAppointmentStatus = async (appointmentId: string, newStatus: string) => {
+    try {
+      const body: StatusUpdateData = { status: newStatus };
+      
+      // If marking as completed, include verifyPatient flag
+      if (newStatus === 'completed' && verifyPatient) {
+        body.verifyPatient = true;
+      }
+
+      const response = await fetch(`${API_URL}/api/admin/appointments/${appointmentId}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (response.ok) {
+        await fetchAppointments();
+        setSelectedAppointment(null);
+        setVerifyPatient(false);
+        alert('Statut mis à jour avec succès');
+      } else {
+        alert('Erreur lors de la mise à jour');
+      }
+    } catch (error) {
+      console.error('Update status error:', error);
+      alert('Erreur lors de la mise à jour');
+    }
   };
 
   return (
@@ -134,6 +173,58 @@ export function Appointments() {
                       <strong>Motif:</strong> {apt.reason}
                     </div>
                   </div>
+                  
+                  {apt.status !== 'completed' && apt.status !== 'cancelled' && (
+                    <div className="appointment-actions">
+                      {selectedAppointment === apt.id ? (
+                        <div className="status-update-form">
+                          <select 
+                            className="status-select"
+                            onChange={(e) => {
+                              if (e.target.value) {
+                                updateAppointmentStatus(apt.id, e.target.value);
+                              }
+                            }}
+                            defaultValue=""
+                          >
+                            <option value="">Changer le statut...</option>
+                            <option value="confirmed">Confirmer</option>
+                            <option value="completed">Marquer comme terminé</option>
+                            <option value="cancelled">Annuler</option>
+                            <option value="no_show">Patient absent</option>
+                          </select>
+                          
+                          {apt.status === 'confirmed' && (
+                            <label className="verify-patient-checkbox">
+                              <input
+                                type="checkbox"
+                                checked={verifyPatient}
+                                onChange={(e) => setVerifyPatient(e.target.checked)}
+                              />
+                              <span>Vérifier le patient (accès complet)</span>
+                            </label>
+                          )}
+                          
+                          <button 
+                            className="btn-cancel"
+                            onClick={() => {
+                              setSelectedAppointment(null);
+                              setVerifyPatient(false);
+                            }}
+                          >
+                            Annuler
+                          </button>
+                        </div>
+                      ) : (
+                        <button 
+                          className="btn-primary"
+                          onClick={() => setSelectedAppointment(apt.id)}
+                        >
+                          Modifier le statut
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
