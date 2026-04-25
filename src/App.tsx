@@ -141,7 +141,7 @@ export default function App() {
   if (currentPage === "dashboard") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Dashboard />
         </ProtectedRoute>
       </AuthProvider>
@@ -151,7 +151,7 @@ export default function App() {
   if (currentPage === "appointments") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Appointments />
         </ProtectedRoute>
       </AuthProvider>
@@ -161,7 +161,7 @@ export default function App() {
   if (currentPage === "patients") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Patients />
         </ProtectedRoute>
       </AuthProvider>
@@ -171,7 +171,7 @@ export default function App() {
   if (currentPage === "messages") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Messages />
         </ProtectedRoute>
       </AuthProvider>
@@ -181,7 +181,7 @@ export default function App() {
   if (currentPage === "availability") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Availability />
         </ProtectedRoute>
       </AuthProvider>
@@ -191,7 +191,7 @@ export default function App() {
   if (currentPage === "profile") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Profile />
         </ProtectedRoute>
       </AuthProvider>
@@ -201,7 +201,7 @@ export default function App() {
   if (currentPage === "articles") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Articles />
         </ProtectedRoute>
       </AuthProvider>
@@ -211,7 +211,7 @@ export default function App() {
   if (currentPage === "article-editor") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <ArticleEditor />
         </ProtectedRoute>
       </AuthProvider>
@@ -221,7 +221,7 @@ export default function App() {
   if (currentPage === "users") {
     return (
       <AuthProvider>
-        <ProtectedRoute>
+        <ProtectedRoute requireAdmin={true}>
           <Users />
         </ProtectedRoute>
       </AuthProvider>

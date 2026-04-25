@@ -39,7 +39,14 @@ export function Navbar() {
   };
 
   const handleDashboardClick = () => {
-    window.location.href = "/admin/dashboard";
+    // Rediriger selon le rôle
+    if (provider?.role === 'patient') {
+      window.location.href = "/patient/dashboard";
+    } else if (provider?.role === 'admin' || provider?.role === 'provider') {
+      window.location.href = "/admin/dashboard";
+    } else {
+      window.location.href = "/";
+    }
   };
 
   const handleLogout = () => {

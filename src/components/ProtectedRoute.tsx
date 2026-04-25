@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { Maintenance } from '../pages/Maintenance';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -25,10 +26,14 @@ export function ProtectedRoute({
     return null;
   }
   
-  // Check admin requirement
-  if (requireAdmin && provider?.role !== 'admin') {
-    window.location.href = '/';
-    return null;
+  // Check admin requirement - show maintenance page if patient tries to access admin
+  if (requireAdmin && provider?.role === 'patient') {
+    return <Maintenance />;
+  }
+  
+  // Check admin requirement for other cases
+  if (requireAdmin && provider?.role !== 'admin' && provider?.role !== 'provider') {
+    return <Maintenance />;
   }
   
   return <>{children}</>;

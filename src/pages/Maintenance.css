@@ -1,0 +1,98 @@
+/* ==================== MAINTENANCE PAGE ==================== */
+.maintenance-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f9fdf9 0%, #e8f5e9 100%);
+  padding: 40px 20px;
+}
+
+.maintenance-container {
+  max-width: 600px;
+  text-align: center;
+  background: white;
+  border: 2px solid #e8ebe5;
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.maintenance-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.maintenance-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2a4538;
+  margin: 0 0 16px 0;
+}
+
+.maintenance-text {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.maintenance-subtext {
+  font-size: 15px;
+  color: #999;
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+}
+
+.maintenance-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #5a6b4a, #4a6630);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(90, 107, 74, 0.2);
+}
+
+.maintenance-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(90, 107, 74, 0.3);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .maintenance-container {
+    padding: 40px 24px;
+  }
+
+  .maintenance-icon {
+    font-size: 60px;
+  }
+
+  .maintenance-title {
+    font-size: 24px;
+  }
+
+  .maintenance-text {
+    font-size: 16px;
+  }
+
+  .maintenance-subtext {
+    font-size: 14px;
+  }
+}
