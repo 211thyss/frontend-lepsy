@@ -7,6 +7,7 @@ interface Provider {
   firstName: string;
   lastName: string;
   title?: string;
+  phone?: string;
   role: string;
   avatarUrl?: string;
   isVerified?: boolean;
