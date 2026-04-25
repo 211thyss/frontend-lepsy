@@ -20,7 +20,12 @@ export function ProtectedRoute({
     return null;
   }
   
-  // Redirect if not authenticated
+  // If admin route and not authenticated, show maintenance page
+  if (requireAdmin && !isAuthenticated) {
+    return <Maintenance />;
+  }
+  
+  // Redirect if not authenticated (for non-admin routes)
   if (!isAuthenticated) {
     window.location.href = redirectTo;
     return null;
