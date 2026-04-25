@@ -21,6 +21,7 @@ import { Profile } from "./pages/admin/Profile";
 import { Articles } from "./pages/admin/Articles";
 import { ArticleEditor } from "./pages/admin/ArticleEditor";
 import { Users } from "./pages/admin/Users";
+import { PatientDashboard } from "./pages/patient/Dashboard";
 import { BookingWizard } from "./components/BookingWizard";
 import { Blog } from "./pages/Blog";
 import { ArticleDetail } from "./pages/ArticleDetail";
@@ -36,6 +37,8 @@ export default function App() {
       setCurrentPage("legal");
     } else if (path === "/login" || path === "/admin/login") {
       setCurrentPage("login");
+    } else if (path === "/patient/dashboard") {
+      setCurrentPage("patient-dashboard");
     } else if (path === "/admin/dashboard" || path === "/admin") {
       setCurrentPage("dashboard");
     } else if (path === "/admin/appointments") {
@@ -72,6 +75,8 @@ export default function App() {
         setCurrentPage("legal");
       } else if (path === "/login" || path === "/admin/login") {
         setCurrentPage("login");
+      } else if (path === "/patient/dashboard") {
+        setCurrentPage("patient-dashboard");
       } else if (path === "/admin/dashboard" || path === "/admin") {
         setCurrentPage("dashboard");
       } else if (path === "/admin/appointments") {
@@ -119,6 +124,16 @@ export default function App() {
         <Navbar />
         <BookingWizard />
         <Footer />
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "patient-dashboard") {
+    return (
+      <AuthProvider>
+        <ProtectedRoute>
+          <PatientDashboard />
+        </ProtectedRoute>
       </AuthProvider>
     );
   }

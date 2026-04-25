@@ -95,7 +95,19 @@ export function Login() {
 
     try {
       await login(formData.email, formData.password);
-      window.location.href = '/admin/dashboard';
+      
+      // Rediriger selon le rôle
+      const storedProvider = localStorage.getItem('provider');
+      if (storedProvider && storedProvider !== 'undefined') {
+        const user = JSON.parse(storedProvider);
+        if (user.role === 'patient') {
+          window.location.href = '/patient/dashboard';
+        } else {
+          window.location.href = '/admin/dashboard';
+        }
+      } else {
+        window.location.href = '/';
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erreur de connexion');
     } finally {
@@ -162,7 +174,7 @@ export function Login() {
 
       // Auto-login after registration
       await login(formData.email, formData.password);
-      window.location.href = '/';
+      window.location.href = '/patient/dashboard';
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erreur lors de l\'inscription');
     } finally {
