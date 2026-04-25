@@ -19,18 +19,13 @@
 }
 
 .maintenance-icon {
-  font-size: 80px;
+  color: #5a6b4a;
   margin-bottom: 24px;
-  animation: rotate 3s linear infinite;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.maintenance-icon svg {
+  display: block;
+  margin: 0 auto;
 }
 
 .maintenance-title {
@@ -80,8 +75,9 @@
     padding: 40px 24px;
   }
 
-  .maintenance-icon {
-    font-size: 60px;
+  .maintenance-icon svg {
+    width: 60px;
+    height: 60px;
   }
 
   .maintenance-title {

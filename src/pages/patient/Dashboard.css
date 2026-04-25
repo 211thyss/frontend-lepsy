@@ -34,11 +34,6 @@
   margin-bottom: 32px;
 }
 
-.banner-icon {
-  font-size: 32px;
-  flex-shrink: 0;
-}
-
 .banner-content h3 {
   font-size: 18px;
   font-weight: 600;
@@ -189,8 +184,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.action-icon {
-  font-size: 32px;
+.action-button svg {
+  color: #5a6b4a;
+  flex-shrink: 0;
 }
 
 .action-text {
