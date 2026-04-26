@@ -9,6 +9,7 @@ const providers = [
     name: "Théo Gichtenaere",
     title: "Psychologue clinicien",
     description: "Théo a rejoint le cabinet en 2018 et possède une expertise approfondie dans l'accompagnement des adultes et adolescents. Spécialisé dans les thérapies cognitivo-comportementales, il propose une approche intégrative et bienveillante pour vous aider à surmonter vos difficultés et retrouver un équilibre de vie durable.",
+    specialties: ["TCC", "Adultes", "Adolescents", "Anxiété", "Dépression"],
     avatar: "/providers/theo-avatar.jpg",
     image: "/providers/theo-full.png",
   },
@@ -17,6 +18,7 @@ const providers = [
     name: "Cloé Gichtenaere",
     title: "Neuropsychologue",
     description: "Cloé est neuropsychologue diplômée depuis 2015. Passionnée par le fonctionnement cognitif et les neurosciences, elle propose des bilans neuropsychologiques complets et un accompagnement personnalisé. Son approche vise à optimiser vos capacités cognitives et à mieux comprendre votre fonctionnement unique.",
+    specialties: ["Neuropsychologie", "Bilans cognitifs", "Attention", "Mémoire"],
     avatar: "/providers/cloe-avatar.jpg",
     image: "/providers/cloe-full.jpg",
   },
@@ -42,40 +44,47 @@ export function Providers() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      x: direction > 0 ? 1000 : -1000,
       opacity: 0,
+      scale: 0.8,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
+      x: direction > 0 ? -1000 : 1000,
       opacity: 0,
+      scale: 0.8,
     }),
   };
 
   return (
     <section className="providers" id="equipe" aria-labelledby="providers-title">
       <div className="providers-inner">
-        <motion.h2 
-          id="providers-title" 
-          className="providers-title"
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          className="providers-header"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="providers-title-plain">Rencontrez </span>
-          <span className="providers-title-accent">notre équipe</span>
-        </motion.h2>
+          <h2 id="providers-title" className="providers-title">
+            <span className="providers-title-plain">Rencontrez </span>
+            <span className="providers-title-accent">notre équipe</span>
+          </h2>
+          <p className="providers-subtitle">
+            Des professionnels passionnés à votre écoute
+          </p>
+        </motion.div>
 
-        <div className="providers-card">
+        <div className="providers-card-wrapper">
           <motion.button
             className="providers-nav providers-nav--prev"
             onClick={handlePrev}
             aria-label="Profil précédent"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1, x: -4 }}
             whileTap={{ scale: 0.95 }}
           >
             <NavArrowLeft strokeWidth={2.5} />
@@ -85,7 +94,7 @@ export function Providers() {
             className="providers-nav providers-nav--next"
             onClick={handleNext}
             aria-label="Profil suivant"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1, x: 4 }}
             whileTap={{ scale: 0.95 }}
           >
             <NavArrowRight strokeWidth={2.5} />
@@ -94,73 +103,94 @@ export function Providers() {
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={activeProvider.id}
-              className="providers-card-content"
+              className="providers-card"
               custom={direction}
               variants={slideVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.3 },
+                x: { type: "spring", stiffness: 200, damping: 25 },
+                opacity: { duration: 0.4 },
+                scale: { duration: 0.4 },
               }}
             >
-              <motion.div 
-                className="providers-card-text"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <h3 className="providers-card-name">{activeProvider.name}</h3>
-                <p className="providers-card-title">{activeProvider.title}</p>
-                <p className="providers-card-description">{activeProvider.description}</p>
-              </motion.div>
+              <div className="providers-card-grid">
+                <motion.div
+                  className="providers-card-content"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  <div className="providers-card-badge">
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                    >
+                      ✨
+                    </motion.span>
+                  </div>
+                  
+                  <h3 className="providers-card-name">{activeProvider.name}</h3>
+                  <p className="providers-card-title">{activeProvider.title}</p>
+                  
+                  <div className="providers-card-specialties">
+                    {activeProvider.specialties.map((specialty, index) => (
+                      <motion.span
+                        key={specialty}
+                        className="providers-specialty-tag"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {specialty}
+                      </motion.span>
+                    ))}
+                  </div>
+                  
+                  <p className="providers-card-description">{activeProvider.description}</p>
+                  
+                  <motion.a
+                    href="/prendre-rdv"
+                    className="providers-card-cta"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Prendre rendez-vous
+                  </motion.a>
+                </motion.div>
 
-              <motion.div 
-                className="providers-card-image-wrapper"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                <img
-                  src={activeProvider.image}
-                  alt={activeProvider.name}
-                  className="providers-card-image"
-                />
-              </motion.div>
+                <motion.div
+                  className="providers-card-image-wrapper"
+                  initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  <div className="providers-image-decoration" />
+                  <img
+                    src={activeProvider.image}
+                    alt={activeProvider.name}
+                    className="providers-card-image"
+                  />
+                </motion.div>
+              </div>
             </motion.div>
           </AnimatePresence>
 
-          <div className="providers-avatars">
+          <div className="providers-dots">
             {providers.map((provider, index) => (
               <motion.button
                 key={provider.id}
-                className={
-                  activeId === provider.id
-                    ? "providers-avatar providers-avatar--active"
-                    : "providers-avatar"
-                }
+                className={`providers-dot ${activeId === provider.id ? "active" : ""}`}
                 onClick={() => {
                   setDirection(index > activeIndex ? 1 : -1);
                   setActiveId(provider.id);
                 }}
-                aria-label={`Voir le profil de ${provider.name}`}
-                whileHover={{ y: -4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.img
-                  src={provider.avatar}
-                  alt={`Photo de ${provider.name}`}
-                  className="providers-avatar-image"
-                  loading="lazy"
-                  animate={{
-                    scale: activeId === provider.id ? 1.08 : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-                <span className="providers-avatar-name">{provider.name.split(' ')[0]}</span>
-                <span className="providers-avatar-title">{provider.title}</span>
-              </motion.button>
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label={`Voir ${provider.name}`}
+              />
             ))}
           </div>
         </div>
