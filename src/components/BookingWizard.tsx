@@ -146,7 +146,7 @@ function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: str
       <div className="provider-cards">
         <button className="provider-card" onClick={() => onSelect('theo-id', 'Théo Gichtenaere')}>
           <div className="provider-card-image">
-            <img src="/dist/providers/theo-avatar.jpg" alt="Théo Gichtenaere" />
+            <img src="/providers/theo-avatar.jpg" alt="Théo Gichtenaere" />
           </div>
           <h3 className="provider-card-name">Théo Gichtenaere</h3>
           <p className="provider-card-title">Psychologue clinicien</p>
@@ -157,7 +157,7 @@ function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: str
 
         <button className="provider-card" onClick={() => onSelect('cloe-id', 'Cloé Gichtenaere')}>
           <div className="provider-card-image">
-            <img src="/dist/providers/cloe-avatar.jpg" alt="Cloé Gichtenaere" />
+            <img src="/providers/cloe-avatar.jpg" alt="Cloé Gichtenaere" />
           </div>
           <h3 className="provider-card-name">Cloé Gichtenaere</h3>
           <p className="provider-card-title">Neuropsychologue</p>
