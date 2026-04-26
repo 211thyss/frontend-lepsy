@@ -1,11 +1,8 @@
 :3010 {
     root * /app/dist
     encode gzip
-    file_server
     
-    # SPA fallback - only for non-existent files
-    @notFile {
-        not file
-    }
-    rewrite @notFile /index.html
+    # Try to serve the file, otherwise serve index.html
+    try_files {path} /index.html
+    file_server
 }
