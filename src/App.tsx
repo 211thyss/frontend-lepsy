@@ -317,12 +317,10 @@ export default function App() {
         Aller au contenu principal
       </a>
       <Navbar />
-      <main id="main-content" className="reveal-wrapper">
+      <main id="main-content">
+        <Hero />
+        <Steps />
         <RevealSection />
-        <div className="reveal-top-content">
-          <Hero />
-          <Steps />
-        </div>
         <Providers />
         <Formats />
         <Contact />
