@@ -1,6 +1,6 @@
 .contact {
   padding: clamp(4rem, 8vw, 6rem) min(2rem, 4vw);
-  background: linear-gradient(180deg, #f5f0e8 0%, #e8ebe5 100%);
+  background: #ffffff;
   color: #1e2e19;
 }
 
