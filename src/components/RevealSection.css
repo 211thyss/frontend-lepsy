@@ -3,8 +3,12 @@
   background: linear-gradient(135deg, #2a4538 0%, #1e2e19 100%);
   color: #ffffff;
   padding: 8rem 2rem;
-  margin-top: -2px;
+  margin-top: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .reveal-content {
@@ -70,6 +74,7 @@
 @media (max-width: 768px) {
   .reveal-section {
     padding: 5rem 1.5rem;
+    min-height: auto;
   }
   
   .reveal-title {

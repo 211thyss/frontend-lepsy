@@ -108,25 +108,35 @@ a:focus-visible {
 /* Reveal effect wrapper */
 .reveal-wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .reveal-top-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   background: #f5f0e8;
+  min-height: 100vh;
 }
 
-/* This creates the reveal effect - the green section stays fixed until scrolled past */
-@media (min-width: 768px) {
+/* This creates the reveal effect - the green section is fixed behind */
+.reveal-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* On mobile, disable the fixed effect */
+@media (max-width: 767px) {
   .reveal-section {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    position: relative;
+    height: auto;
   }
   
   .reveal-top-content {
-    position: relative;
-    z-index: 2;
+    min-height: auto;
   }
 }
 
