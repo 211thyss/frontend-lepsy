@@ -104,3 +104,29 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Reveal effect wrapper */
+.reveal-wrapper {
+  position: relative;
+}
+
+.reveal-top-content {
+  position: relative;
+  z-index: 2;
+  background: #f5f0e8;
+}
+
+/* This creates the reveal effect - the green section stays fixed until scrolled past */
+@media (min-width: 768px) {
+  .reveal-section {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .reveal-top-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+

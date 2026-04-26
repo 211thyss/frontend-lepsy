@@ -3,6 +3,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Hero } from "./components/Hero";
 import { Steps } from "./components/Steps";
+import { RevealSection } from "./components/RevealSection";
 import { Providers } from "./components/Providers";
 import { Navbar } from "./components/Navbar";
 import { Formats } from "./components/Formats";
@@ -316,9 +317,12 @@ export default function App() {
         Aller au contenu principal
       </a>
       <Navbar />
-      <main id="main-content">
-        <Hero />
-        <Steps />
+      <main id="main-content" className="reveal-wrapper">
+        <div className="reveal-top-content">
+          <Hero />
+          <Steps />
+        </div>
+        <RevealSection />
         <Providers />
         <Formats />
         <Contact />
