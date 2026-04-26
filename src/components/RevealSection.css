@@ -9,9 +9,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.reveal-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(138, 173, 110, 0.15), transparent 70%);
+  pointer-events: none;
 }
 
 .reveal-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
@@ -23,52 +37,59 @@
 
 .reveal-title {
   margin: 0;
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.reveal-title-accent {
-  color: #8aad6e;
-  font-style: italic;
+  letter-spacing: -0.02em;
 }
 
 .reveal-title-plain {
   color: #ffffff;
+  font-weight: 700;
+}
+
+.reveal-title-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  color: #8aad6e;
+  display: block;
+  margin-top: 0.25em;
 }
 
 .reveal-description {
   margin: 0;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
   max-width: 600px;
+  font-weight: 400;
 }
 
 .reveal-cta {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: #8aad6e;
+  padding: 1.1rem 2.75rem;
+  background: linear-gradient(180deg, #9cbd7e 0%, #8aad6e 100%);
   color: #1e2e19;
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 999px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(138, 173, 110, 0.3);
+  box-shadow: 0 4px 20px rgba(138, 173, 110, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  letter-spacing: 0.02em;
 }
 
 .reveal-cta:hover {
-  background: #9cbd7e;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(138, 173, 110, 0.4);
+  box-shadow: 0 6px 30px rgba(138, 173, 110, 0.4), 0 1px 0 rgba(255, 255, 255, 0.25) inset;
 }
 
-.reveal-cta:active {
-  transform: translateY(0);
+.reveal-cta:focus-visible {
+  outline: 2px solid rgba(138, 173, 110, 0.9);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
@@ -79,12 +100,12 @@
     position: relative;
   }
   
-  .reveal-title {
-    gap: 0.25rem;
+  .reveal-title-accent {
+    margin-top: 0.15em;
   }
   
   .reveal-cta {
-    padding: 0.875rem 2rem;
+    padding: 1rem 2.25rem;
     font-size: 1rem;
   }
 }

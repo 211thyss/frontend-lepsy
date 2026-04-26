@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
+import { motion, AnimatePresence } from "framer-motion";
+import { NavArrowLeft, NavArrowRight } from "iconoir-react";
 import "./Providers.css";
 
 const providers = [
@@ -23,81 +24,143 @@ const providers = [
 
 export function Providers() {
   const [activeId, setActiveId] = useState(1);
+  const [direction, setDirection] = useState(0);
   const activeProvider = providers.find((p) => p.id === activeId) || providers[0];
   const activeIndex = providers.findIndex((p) => p.id === activeId);
 
   const handlePrev = () => {
+    setDirection(-1);
     const newIndex = activeIndex === 0 ? providers.length - 1 : activeIndex - 1;
     setActiveId(providers[newIndex].id);
   };
 
   const handleNext = () => {
+    setDirection(1);
     const newIndex = activeIndex === providers.length - 1 ? 0 : activeIndex + 1;
     setActiveId(providers[newIndex].id);
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -100 : 100,
+      opacity: 0,
+    }),
   };
 
   return (
     <section className="providers" id="equipe" aria-labelledby="providers-title">
       <div className="providers-inner">
-        <h2 id="providers-title" className="providers-title">
+        <motion.h2 
+          id="providers-title" 
+          className="providers-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="providers-title-plain">Rencontrez </span>
           <span className="providers-title-accent">notre équipe</span>
-        </h2>
+        </motion.h2>
 
         <div className="providers-card">
-          <button
+          <motion.button
             className="providers-nav providers-nav--prev"
             onClick={handlePrev}
             aria-label="Profil précédent"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <ArrowLeft size={28} weight="bold" />
-          </button>
+            <NavArrowLeft strokeWidth={2.5} />
+          </motion.button>
 
-          <button
+          <motion.button
             className="providers-nav providers-nav--next"
             onClick={handleNext}
             aria-label="Profil suivant"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <ArrowRight size={28} weight="bold" />
-          </button>
+            <NavArrowRight strokeWidth={2.5} />
+          </motion.button>
 
-          <div className="providers-card-content" key={activeProvider.id}>
-            <div className="providers-card-text">
-              <h3 className="providers-card-name">{activeProvider.name}</h3>
-              <p className="providers-card-title">{activeProvider.title}</p>
-              <p className="providers-card-description">{activeProvider.description}</p>
-            </div>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={activeProvider.id}
+              className="providers-card-content"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.3 },
+              }}
+            >
+              <motion.div 
+                className="providers-card-text"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >
+                <h3 className="providers-card-name">{activeProvider.name}</h3>
+                <p className="providers-card-title">{activeProvider.title}</p>
+                <p className="providers-card-description">{activeProvider.description}</p>
+              </motion.div>
 
-            <div className="providers-card-image-wrapper">
-              <img
-                src={activeProvider.image}
-                alt={activeProvider.name}
-                className="providers-card-image"
-              />
-            </div>
-          </div>
+              <motion.div 
+                className="providers-card-image-wrapper"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <img
+                  src={activeProvider.image}
+                  alt={activeProvider.name}
+                  className="providers-card-image"
+                />
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
 
           <div className="providers-avatars">
-            {providers.map((provider) => (
-              <button
+            {providers.map((provider, index) => (
+              <motion.button
                 key={provider.id}
                 className={
                   activeId === provider.id
                     ? "providers-avatar providers-avatar--active"
                     : "providers-avatar"
                 }
-                onClick={() => setActiveId(provider.id)}
+                onClick={() => {
+                  setDirection(index > activeIndex ? 1 : -1);
+                  setActiveId(provider.id);
+                }}
                 aria-label={`Voir le profil de ${provider.name}`}
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <img
+                <motion.img
                   src={provider.avatar}
                   alt={`Photo de ${provider.name}`}
                   className="providers-avatar-image"
                   loading="lazy"
+                  animate={{
+                    scale: activeId === provider.id ? 1.08 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
                 />
                 <span className="providers-avatar-name">{provider.name.split(' ')[0]}</span>
                 <span className="providers-avatar-title">{provider.title}</span>
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
