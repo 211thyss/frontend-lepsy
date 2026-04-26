@@ -1,47 +1,29 @@
 .footer {
-  position: relative;
-  background: linear-gradient(180deg, #2a4538 0%, #1e2e19 100%);
-  color: rgba(255, 255, 255, 0.9);
-  overflow: hidden;
+  background: linear-gradient(135deg, #2a4538 0%, #1e2e19 100%);
+  color: #ffffff;
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
 }
 
-.footer-wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  transform: translateY(-100%);
-  z-index: 1;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.footer-wave svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  fill: #2a4538;
-}
-
-.footer-content {
-  position: relative;
-  z-index: 2;
-  max-width: 80rem;
-  margin-inline: auto;
-  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
-}
-
-.footer-main {
+.footer-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
+  margin-bottom: 3rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 768px) {
-  .footer-main {
-    grid-template-columns: 1.2fr 2fr;
-    gap: 4rem;
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem;
   }
 }
 
@@ -52,52 +34,39 @@
 }
 
 .footer-logo {
-  width: 60px;
+  width: 50px;
   height: auto;
 }
 
-.footer-brand-name {
+.footer-title {
   margin: 0;
-  font-family: var(--font-sans);
   font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.05em;
+  color: #ffffff;
 }
 
 .footer-tagline {
   margin: 0;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 20rem;
+  max-width: 280px;
 }
 
-.footer-links {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-@media (min-width: 600px) {
-  .footer-links {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-.footer-column-title {
-  margin: 0 0 1.25rem;
-  font-family: var(--font-sans);
+.footer-heading {
+  margin: 0;
   font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(138, 173, 110, 0.9);
+  color: #8aad6e;
 }
 
 .footer-list {
@@ -110,48 +79,39 @@
 }
 
 .footer-link {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s ease;
-  display: inline-block;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
 }
 
 .footer-link:hover {
-  color: rgba(138, 173, 110, 1);
+  color: #8aad6e;
 }
 
 .footer-text {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
 }
 
 .footer-bottom {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
+  gap: 1rem;
   padding-top: 2rem;
-  text-align: center;
 }
 
 @media (min-width: 768px) {
   .footer-bottom {
     flex-direction: row;
     justify-content: space-between;
-    text-align: left;
   }
 }
 
 .footer-copyright {
   margin: 0;
-  font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -162,34 +122,16 @@
 }
 
 .footer-legal-link {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
 }
 
 .footer-legal-link:hover {
-  color: rgba(138, 173, 110, 0.9);
+  color: #8aad6e;
 }
 
 .footer-separator {
   color: rgba(255, 255, 255, 0.3);
-  font-size: 0.85rem;
-}
-
-@media (max-width: 767px) {
-  .footer-wave {
-    height: 60px;
-  }
-  
-  .footer-brand {
-    text-align: center;
-    align-items: center;
-  }
-  
-  .footer-tagline {
-    text-align: center;
-  }
 }
