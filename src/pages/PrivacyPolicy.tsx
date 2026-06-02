@@ -10,7 +10,7 @@ export function PrivacyPolicy() {
         <section className="legal-section">
           <h2>1. Introduction</h2>
           <p>
-            Le cabinet GICHT' Gichtenaere, représenté par Théo Gichtenaere et Cloé Gichtenaere, 
+            Le cabinet CABINETGichtenaere, représenté par Théo Gichtenaere et Cloé Gichtenaere, 
             accorde une importance particulière à la protection de vos données personnelles, 
             notamment les données de santé qui sont considérées comme des données sensibles 
             au sens du Règlement Général sur la Protection des Données (RGPD).
@@ -25,7 +25,7 @@ export function PrivacyPolicy() {
         <section className="legal-section">
           <h2>2. Responsable du traitement</h2>
           <div className="legal-info-box">
-            <p><strong>Cabinet GICHT' Gichtenaere</strong></p>
+            <p><strong>Cabinet CABINETGichtenaere</strong></p>
             <p>Représenté par : Théo Gichtenaere et Cloé Gichtenaere</p>
             <p>Email : contact@gichtenaere.fr</p>
             <p>Téléphone : +33 1 23 45 67 89</p>
@@ -155,7 +155,7 @@ export function PrivacyPolicy() {
           <div className="legal-info-box">
             <p><strong>Pour exercer vos droits :</strong></p>
             <p>Contactez-nous par email : <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p>Ou par courrier : Cabinet GICHT' Gichtenaere, [Adresse à définir]</p>
+            <p>Ou par courrier : Cabinet CABINETGichtenaere, [Adresse à définir]</p>
             <p>Nous vous répondrons dans un délai d'un mois maximum.</p>
           </div>
         </section>

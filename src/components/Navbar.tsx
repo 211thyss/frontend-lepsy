@@ -57,8 +57,8 @@ export function Navbar() {
     <nav className={isScrolled ? "navbar navbar--scrolled" : "navbar"}>
       <div className="navbar-inner">
         <a href="/" className="navbar-logo" aria-label="Retour à l'accueil" onClick={handleHomeClick}>
-          <img src="/logo.png" alt="Logo GICHT' Gichtenaere" className="navbar-logo-image" />
-          <span className="navbar-logo-text" aria-hidden="true">GICHT' · Gichtenaere</span>
+          <img src="/logo.png" alt="Logo CABINETGichtenaere" className="navbar-logo-image" />
+          <span className="navbar-logo-text" aria-hidden="true">CABINET· Gichtenaere</span>
         </a>
 
         <ul className="navbar-menu" role="navigation" aria-label="Navigation principale">

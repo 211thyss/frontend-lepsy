@@ -65,7 +65,7 @@ export function Hero() {
 
           <div className="hero-layout">
             <header className="hero-inner">
-              <p className="hero-eyebrow">GICHT' · Gichtenaere</p>
+              <p className="hero-eyebrow">CABINET· Gichtenaere</p>
 
               <h1 id="hero-title" className="hero-headline">
                 <span className="hero-headline-sans">Retrouver le calme</span>

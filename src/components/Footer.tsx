@@ -6,8 +6,8 @@ export function Footer() {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <img src="/logo.png" alt="GICHT' Gichtenaere" className="footer-logo" />
-            <h3 className="footer-title">GICHT' · Gichtenaere</h3>
+            <img src="/logo.png" alt="CABINETGichtenaere" className="footer-logo" />
+            <h3 className="footer-title">CABINET· Gichtenaere</h3>
             <p className="footer-tagline">Un espace bienveillant pour retrouver votre équilibre</p>
           </div>
 
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2026 GICHT' Gichtenaere. Tous droits réservés.</p>
+          <p className="footer-copyright">© 2026 CABINETGichtenaere. Tous droits réservés.</p>
           <div className="footer-legal">
             <a href="/mentions-legales" className="footer-legal-link">Mentions légales</a>
             <span className="footer-separator">·</span>

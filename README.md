@@ -1,6 +1,6 @@
-# GICHT' Gichtenaere - Cabinet de Psychologie
+# CABINETGichtenaere - Cabinet de Psychologie
 
-Site web et système de gestion pour le cabinet de psychologie GICHT' Gichtenaere.
+Site web et système de gestion pour le cabinet de psychologie CABINETGichtenaere.
 
 ## 📁 Structure du Projet (Monorepo)
 
@@ -186,15 +186,15 @@ Avant de déployer en production:
 
 ## 🤝 Contribution
 
-Ce projet est privé et destiné au Cabinet GICHT' Gichtenaere.
+Ce projet est privé et destiné au Cabinet CABINETGichtenaere.
 
 ## 📞 Contact
 
-**Cabinet GICHT' Gichtenaere**
+**Cabinet CABINETGichtenaere**
 - Email: contact@gichtenaere.fr
 - Téléphone: +33 1 23 45 67 89
 - Site web: https://gichtenaere.fr
 
 ## 📄 Licence
 
-UNLICENSED - Propriété du Cabinet GICHT' Gichtenaere
+UNLICENSED - Propriété du Cabinet CABINETGichtenaere

@@ -10,7 +10,7 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>1. Éditeur du site</h2>
           <div className="legal-info-box">
-            <p><strong>Raison sociale :</strong> Cabinet GICHT' Gichtenaere</p>
+            <p><strong>Raison sociale :</strong> Cabinet CABINETGichtenaere</p>
             <p><strong>Forme juridique :</strong> [À compléter - Ex: Entreprise individuelle / SELARL]</p>
             <p><strong>Adresse :</strong> [À définir - Cabinet en cours d'ouverture]</p>
             <p><strong>Téléphone :</strong> <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
@@ -149,7 +149,7 @@ export function LegalNotice() {
           <h2>9. Propriété intellectuelle</h2>
           <p>
             L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes, etc.) 
-            est la propriété exclusive du Cabinet GICHT' Gichtenaere, sauf mention contraire.
+            est la propriété exclusive du Cabinet CABINETGichtenaere, sauf mention contraire.
           </p>
           <p>
             Toute reproduction, représentation, modification, publication ou adaptation de tout 
@@ -166,7 +166,7 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>10. Liens hypertextes</h2>
           <p>
-            Le site peut contenir des liens vers d'autres sites internet. Le Cabinet GICHT' Gichtenaere 
+            Le site peut contenir des liens vers d'autres sites internet. Le Cabinet CABINETGichtenaere 
             n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
           </p>
           <p>
@@ -178,7 +178,7 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>11. Limitation de responsabilité</h2>
           <p>
-            Le Cabinet GICHT' Gichtenaere s'efforce d'assurer l'exactitude et la mise à jour des 
+            Le Cabinet CABINETGichtenaere s'efforce d'assurer l'exactitude et la mise à jour des 
             informations diffusées sur ce site. Toutefois, il ne peut garantir l'exactitude, 
             la précision ou l'exhaustivité des informations mises à disposition.
           </p>
