@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 
-const logoPlaceholders = ["FFPP", "Ordre", "Éthique", "Formation"] as const;
-
 const SERIF_PHRASES = [
   "dans l'écoute et la confiance.",
   "dans un cadre déontologique clair.",
@@ -101,17 +99,6 @@ export function Hero() {
                 </a>
               </div>
             </header>
-
-            <div className="hero-logos" aria-hidden>
-              <p className="hero-logos-label">Engagements et cadre professionnel</p>
-              <ul className="hero-logos-row">
-                {logoPlaceholders.map((label) => (
-                  <li key={label} className="hero-logo-item">
-                    {label}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </div>

@@ -30,16 +30,6 @@ export function Footer() {
               <li><span className="footer-text">Cabinet en cours d'ouverture</span></li>
             </ul>
           </div>
-
-          <div className="footer-column">
-            <h4 className="footer-heading">Engagements</h4>
-            <ul className="footer-list">
-              <li><span className="footer-text">FFPP</span></li>
-              <li><span className="footer-text">Ordre des Psychologues</span></li>
-              <li><span className="footer-text">Code de déontologie</span></li>
-              <li><span className="footer-text">Formation continue</span></li>
-            </ul>
-          </div>
         </div>
 
         <div className="footer-bottom">
