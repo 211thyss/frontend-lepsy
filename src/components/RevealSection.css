@@ -5,7 +5,7 @@
   background: linear-gradient(135deg, #2a4538 0%, #1e2e19 100%);
   color: #ffffff;
   padding: 8rem 2rem;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,9 +95,6 @@
 @media (max-width: 768px) {
   .reveal-section {
     padding: 5rem 1.5rem;
-    height: auto;
-    min-height: 100vh;
-    position: relative;
   }
   
   .reveal-title-accent {

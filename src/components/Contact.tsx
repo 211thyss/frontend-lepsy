@@ -51,8 +51,8 @@ export function Contact() {
               <div className="contact-detail-item">
                 <h3 className="contact-detail-label">Adresse</h3>
                 <p className="contact-detail-text">
-                  Cabinet en cours d'ouverture<br />
-                  <span style={{ fontSize: '0.9em', opacity: 0.7 }}>L'adresse sera communiquée prochainement</span>
+                  9 Avenue Albert 1er<br />
+                  83470 Saint-Maximin-la-Sainte-Baume
                 </p>
               </div>
 
@@ -81,6 +81,19 @@ export function Contact() {
                   <span style={{ fontSize: '0.9em', opacity: 0.7 }}>Nous vous informerons dès l'ouverture</span>
                 </p>
               </div>
+            </div>
+
+            <div className="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.5!2d5.863!3d43.452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ca0e6c7e3c7777%3A0x1234567890abcdef!2s9%20Avenue%20Albert%201er%2C%2083470%20Saint-Maximin-la-Sainte-Baume!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
+                width="100%"
+                height="300"
+                style={{ border: 0, borderRadius: '16px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localisation du cabinet - 9 Avenue Albert 1er, Saint-Maximin-la-Sainte-Baume"
+              />
             </div>
           </div>
 

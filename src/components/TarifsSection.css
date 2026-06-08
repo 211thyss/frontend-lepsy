@@ -1,0 +1,281 @@
+.tarifs-section {
+  margin-bottom: 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) min(2rem, 4vw) clamp(3.5rem, 7vw, 5.5rem);
+  background: #ffffff;
+  position: relative;
+  color: #1e2e19;
+  z-index: 2;
+}
+
+/* Bandeau blanc de séparation */
+.tarifs-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(2rem, 4vw, 3rem);
+  background: #ffffff;
+  z-index: 1;
+}
+
+.tarifs-section-inner {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.tarifs-header-content {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.tarifs-section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1e2e19;
+  font-style: italic;
+}
+
+.tarifs-section-title-plain {
+  font-weight: 400;
+}
+
+.tarifs-section-title-accent {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.tarifs-section-subtitle {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(30, 46, 25, 0.65);
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.tarifs-cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tarifs-cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .tarifs-cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cartes Highlight */
+.tarifs-highlight-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 16px rgba(74, 102, 48, 0.06);
+  border: 2px solid rgba(74, 102, 48, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tarifs-highlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6d7f5c 0%, #5a6b4a 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarifs-highlight-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tarifs-highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(74, 102, 48, 0.12);
+  border-color: rgba(74, 102, 48, 0.15);
+}
+
+.tarifs-highlight-card--olive {
+  background: linear-gradient(135deg, rgba(90, 107, 74, 0.04) 0%, rgba(90, 107, 74, 0.08) 100%);
+}
+
+.tarifs-highlight-category {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a4538;
+  letter-spacing: -0.01em;
+}
+
+.tarifs-highlight-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tarifs-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+}
+
+.tarifs-highlight-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(30, 46, 25, 0.85);
+  white-space: nowrap;
+}
+
+.tarifs-highlight-dots {
+  flex: 1;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(90, 107, 74, 0.3) 0%,
+    rgba(90, 107, 74, 0.3) 50%,
+    transparent 50%
+  );
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  min-width: 20px;
+}
+
+.tarifs-highlight-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #5a6b4a;
+  white-space: nowrap;
+}
+
+/* Carte CTA */
+.tarifs-cta-card {
+  background: linear-gradient(135deg, #5a6b4a 0%, #4a6630 100%);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(74, 102, 48, 0.15);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tarifs-cta-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.tarifs-cta-card:hover::before {
+  opacity: 1;
+}
+
+.tarifs-cta-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(74, 102, 48, 0.25);
+}
+
+.tarifs-cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.tarifs-cta-label {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.tarifs-cta-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.tarifs-cta-description {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tarifs-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  background: #ffffff;
+  color: #2a4538;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tarifs-cta-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: #fafafa;
+}
+
+@media (max-width: 768px) {
+  .tarifs-cards-wrapper {
+    gap: 1.25rem;
+  }
+
+  .tarifs-highlight-card,
+  .tarifs-cta-card {
+    padding: 2rem 1.75rem;
+  }
+
+  .tarifs-cta-link {
+    width: 100%;
+    justify-content: center;
+  }
+}

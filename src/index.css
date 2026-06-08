@@ -109,7 +109,7 @@ a:focus-visible {
 .steps {
   position: relative;
   z-index: 1;
-  background: #f5f0e8;
+  background: #ffffff;
 }
 
 .providers,

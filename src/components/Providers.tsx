@@ -7,8 +7,8 @@ const providers = [
   {
     id: 1,
     name: "Théo Gichtenaere",
-    title: "Psychologue clinicien",
-    description: "Théo a rejoint le cabinet en 2018 et possède une expertise approfondie dans l'accompagnement des adultes et adolescents. Spécialisé dans les thérapies cognitivo-comportementales, il propose une approche intégrative et bienveillante pour vous aider à surmonter vos difficultés et retrouver un équilibre de vie durable.",
+    title: "Psychologue",
+    description: "Psychologue clinicien, j'ai développé une solide expérience auprès des enfants et des adolescents, en accompagnant notamment les troubles du comportement, les difficultés scolaires, les troubles de l'attachement et l'hyperactivité. Fort également d'une expérience en psychiatrie, j'accompagne enfants, adolescents, adultes et personnes âgées dans la traversée de différentes difficultés : anxiété, phobies, gestion du stress, dépression, séparation, burn-out, TOC, et autres problématiques courantes liées aux différentes étapes de la vie. Je propose également des bilans psychologiques pour mieux cerner votre fonctionnement, identifier vos ressources et vos difficultés, et construire ensemble une réponse adaptée à vos besoins.",
     avatar: "/providers/theo-avatar.jpg",
     image: "/providers/theo-full.png",
   },
@@ -16,7 +16,7 @@ const providers = [
     id: 2,
     name: "Cloé Gichtenaere",
     title: "Neuropsychologue",
-    description: "Cloé est neuropsychologue diplômée depuis 2015. Passionnée par le fonctionnement cognitif et les neurosciences, elle propose des bilans neuropsychologiques complets et un accompagnement personnalisé. Son approche vise à optimiser vos capacités cognitives et à mieux comprendre votre fonctionnement unique.",
+    description: "Neuropsychologue, j'accompagne enfants, adultes et personnes âgées dans la compréhension de leur fonctionnement cognitif, émotionnel et comportemental. Je propose des bilans neuropsychologiques et des suivis (remédiation cognitive, TCC) afin de mieux comprendre votre fonctionnement, répondre à vos questionnements et donner du sens à vos difficultés.",
     avatar: "/providers/cloe-avatar.jpg",
     image: "/providers/cloe-full.jpg",
   },
@@ -67,7 +67,7 @@ export function Providers() {
           transition={{ duration: 0.6 }}
         >
           <span className="providers-title-plain">Rencontrez </span>
-          <span className="providers-title-accent">notre équipe</span>
+          <span className="providers-title-accent">nos psychologues</span>
         </motion.h2>
 
         <div className="providers-card">

@@ -18,8 +18,8 @@ export function RevealSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="reveal-title-plain">Prêt à commencer </span>
-          <span className="reveal-title-accent">votre parcours ?</span>
+          <span className="reveal-title-plain">Prêt à faire </span>
+          <span className="reveal-title-accent">le premier pas ?</span>
         </motion.h2>
         
         <motion.p 
@@ -29,7 +29,7 @@ export function RevealSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Prenez rendez-vous dès maintenant et faites le premier pas vers un mieux-être durable.
+          Prenez rendez-vous dès maintenant pour un accompagnement ou un bilan adapté à vos besoins, à votre parcours et selon votre âge.
         </motion.p>
         
         <motion.a 

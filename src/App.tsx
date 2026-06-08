@@ -5,6 +5,7 @@ import { Hero } from "./components/Hero";
 import { Steps } from "./components/Steps";
 import { RevealSection } from "./components/RevealSection";
 import { Providers } from "./components/Providers";
+import { TarifsSection } from "./components/TarifsSection";
 import { Navbar } from "./components/Navbar";
 import { Formats } from "./components/Formats";
 import { Contact } from "./components/Contact";
@@ -28,6 +29,7 @@ import { PatientProfile } from "./pages/patient/Profile";
 import { BookingWizard } from "./components/BookingWizard";
 import { Blog } from "./pages/Blog";
 import { ArticleDetail } from "./pages/ArticleDetail";
+import { Tarifs } from "./pages/Tarifs";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -40,6 +42,8 @@ export default function App() {
       setCurrentPage("legal");
     } else if (path === "/login" || path === "/admin/login") {
       setCurrentPage("login");
+    } else if (path === "/tarifs") {
+      setCurrentPage("tarifs");
     } else if (path === "/patient/dashboard") {
       setCurrentPage("patient-dashboard");
     } else if (path === "/patient/appointments") {
@@ -82,6 +86,8 @@ export default function App() {
         setCurrentPage("legal");
       } else if (path === "/login" || path === "/admin/login") {
         setCurrentPage("login");
+      } else if (path === "/tarifs") {
+        setCurrentPage("tarifs");
       } else if (path === "/patient/dashboard") {
         setCurrentPage("patient-dashboard");
       } else if (path === "/patient/appointments") {
@@ -125,6 +131,16 @@ export default function App() {
     return (
       <AuthProvider>
         <Login />
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "tarifs") {
+    return (
+      <AuthProvider>
+        <Navbar />
+        <Tarifs />
+        <Footer />
       </AuthProvider>
     );
   }
@@ -322,6 +338,7 @@ export default function App() {
         <Steps />
         <RevealSection />
         <Providers />
+        <TarifsSection />
         <Formats />
         <Contact />
       </main>

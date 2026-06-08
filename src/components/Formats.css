@@ -1,5 +1,5 @@
 .formats {
-  padding: clamp(4rem, 8vw, 6rem) min(2rem, 4vw);
+  padding: clamp(2.5rem, 5vw, 4rem) min(2rem, 4vw) clamp(4rem, 8vw, 6rem);
   background: #ffffff;
   color: #1e2e19;
 }
@@ -10,7 +10,7 @@
 }
 
 .formats-title {
-  margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+  margin: 0;
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;

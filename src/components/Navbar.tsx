@@ -74,12 +74,17 @@ export function Navbar() {
           </li>
           <li>
             <a href="#equipe" className="navbar-link">
-              Équipe
+              Nos psychologues
             </a>
           </li>
           <li>
             <a href="/blog" className="navbar-link">
               Blog
+            </a>
+          </li>
+          <li>
+            <a href="/tarifs" className="navbar-link">
+              Tarifs
             </a>
           </li>
           <li>

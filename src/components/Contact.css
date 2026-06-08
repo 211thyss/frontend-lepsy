@@ -64,6 +64,14 @@
   margin-top: 1rem;
 }
 
+.contact-map {
+  margin-top: 2rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(30, 46, 25, 0.1);
+}
+
 .contact-detail-item {
   display: flex;
   flex-direction: column;
