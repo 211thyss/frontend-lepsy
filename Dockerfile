@@ -13,11 +13,11 @@ ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM caddy:2-alpine
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/dist /app/dist
 
-EXPOSE 80
+EXPOSE 3010
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]

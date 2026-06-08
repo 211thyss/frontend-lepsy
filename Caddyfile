@@ -1,4 +1,4 @@
-:3010 {
+:80 {
     root * /app/dist
     encode gzip
     
