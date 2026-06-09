@@ -30,6 +30,7 @@ import { BookingWizard } from "./components/BookingWizard";
 import { Blog } from "./pages/Blog";
 import { ArticleDetail } from "./pages/ArticleDetail";
 import { Tarifs } from "./pages/Tarifs";
+import { FormatsAccompagnement } from "./pages/FormatsAccompagnement";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -44,6 +45,8 @@ export default function App() {
       setCurrentPage("login");
     } else if (path === "/tarifs") {
       setCurrentPage("tarifs");
+    } else if (path === "/formats-accompagnement") {
+      setCurrentPage("formats-accompagnement");
     } else if (path === "/patient/dashboard") {
       setCurrentPage("patient-dashboard");
     } else if (path === "/patient/appointments") {
@@ -88,6 +91,8 @@ export default function App() {
         setCurrentPage("login");
       } else if (path === "/tarifs") {
         setCurrentPage("tarifs");
+      } else if (path === "/formats-accompagnement") {
+        setCurrentPage("formats-accompagnement");
       } else if (path === "/patient/dashboard") {
         setCurrentPage("patient-dashboard");
       } else if (path === "/patient/appointments") {
@@ -140,6 +145,16 @@ export default function App() {
       <AuthProvider>
         <Navbar />
         <Tarifs />
+        <Footer />
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "formats-accompagnement") {
+    return (
+      <AuthProvider>
+        <Navbar />
+        <FormatsAccompagnement />
         <Footer />
       </AuthProvider>
     );

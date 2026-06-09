@@ -59,8 +59,8 @@ export function Contact() {
               <div className="contact-detail-item">
                 <h3 className="contact-detail-label">Téléphone</h3>
                 <p className="contact-detail-text">
-                  <a href="tel:+33123456789" className="contact-link">
-                    +33 1 23 45 67 89
+                  <a href="tel:+33685455754" className="contact-link">
+                    +33 6 85 45 57 54
                   </a>
                 </p>
               </div>
@@ -77,8 +77,8 @@ export function Contact() {
               <div className="contact-detail-item">
                 <h3 className="contact-detail-label">Horaires</h3>
                 <p className="contact-detail-text">
-                  À définir<br />
-                  <span style={{ fontSize: '0.9em', opacity: 0.7 }}>Nous vous informerons dès l'ouverture</span>
+                  Du Lundi au dimanche<br />
+                  de 7h30 à 21h
                 </p>
               </div>
             </div>

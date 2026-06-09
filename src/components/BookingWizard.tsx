@@ -151,7 +151,7 @@ function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: str
           <h3 className="provider-card-name">Théo Gichtenaere</h3>
           <p className="provider-card-title">Psychologue clinicien</p>
           <p className="provider-card-specialties">
-            Thérapies cognitivo-comportementales • Adultes & Adolescents
+            Accompagnement d'enfants, adolescents, adultes et personnes âgées par des entretiens cliniques et des bilans psychologiques.
           </p>
         </button>
 
@@ -162,7 +162,7 @@ function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: str
           <h3 className="provider-card-name">Cloé Gichtenaere</h3>
           <p className="provider-card-title">Neuropsychologue</p>
           <p className="provider-card-specialties">
-            Bilans neuropsychologiques • Neurosciences • Accompagnement cognitif
+            Accompagnement d'enfants, adolescents, adultes et personnes âgées par des bilans neuropsychologiques et des suivis adaptés.
           </p>
         </button>
       </div>

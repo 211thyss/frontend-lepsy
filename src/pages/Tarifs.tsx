@@ -5,41 +5,29 @@ import "./Tarifs.css";
 const tarifs = [
   {
     id: 1,
-    category: "Bilans",
-    subtitle: "Psychologiques & neuropsychologiques",
+    category: "Consultations",
+    subtitle: "Séances individuelles et familiales",
     variant: "light" as const,
     items: [
-      { name: "Bilan psychologique complet", price: "300€", duration: "Plusieurs séances" },
-      { name: "Bilan neuropsychologique", price: "350€", duration: "Plusieurs séances" },
-      { name: "Bilan TDAH", price: "320€", duration: "Plusieurs séances" },
-      { name: "Bilan autisme (TSA)", price: "380€", duration: "Plusieurs séances" },
-      { name: "Consultation mémoire", price: "280€", duration: "Plusieurs séances" },
+      { name: "Consultation initiale (1er RDV / anamnèse)", price: "60€", duration: "45–60 min" },
+      { name: "Consultation de suivi (remédiation cognitive, psychothérapie)", price: "60€", duration: "45 min" },
+      { name: "Consultation en visioconférence", price: "70€", duration: "45 min" },
+      { name: "Consultation le dimanche", price: "80€", duration: "45 min" },
     ],
   },
   {
     id: 2,
-    category: "Suivis",
-    subtitle: "Consultations individuelles",
+    category: "Bilans",
+    subtitle: "Évaluations complètes",
     variant: "olive" as const,
     items: [
-      { name: "Séance adulte", price: "60€", duration: "45–50 min" },
-      { name: "Séance enfant / ado", price: "55€", duration: "45 min" },
-      { name: "Remédiation cognitive", price: "65€", duration: "45–50 min" },
+      { name: "Bilan attentionnel TDAH — Enfant", price: "350€", duration: "Plusieurs séances" },
+      { name: "Bilan attentionnel TDAH — Adulte", price: "200€", duration: "Plusieurs séances" },
+      { name: "Bilan cognitif (test de QI, dossier MDPH, etc.)", price: "350€", duration: "Plusieurs séances" },
+      { name: "Bilan consultation mémoire", price: "350€", duration: "Plusieurs séances" },
+      { name: "Bilan fonctionnel (cognition sociale, mémoire, attention, etc.)", price: "350€", duration: "Plusieurs séances" },
+      { name: "Bilan neuropsychologique / psychologique complet", price: "500€", duration: "Plusieurs séances" },
     ],
-  },
-  {
-    id: 3,
-    category: "Couple",
-    subtitle: "Thérapie de couple",
-    variant: "sage" as const,
-    items: [{ name: "Séance de couple", price: "80€", duration: "60 min" }],
-  },
-  {
-    id: 4,
-    category: "Famille",
-    subtitle: "Thérapie familiale",
-    variant: "mint" as const,
-    items: [{ name: "Séance familiale", price: "90€", duration: "60 min" }],
   },
 ] as const;
 
@@ -47,26 +35,24 @@ const pcoInfo = [
   {
     title: "Qu'est-ce que la PCO ?",
     description:
-      "La Prise en Charge Obligatoire permet un remboursement partiel de vos consultations par l'Assurance Maladie.",
+      "Les plateformes de coordination et d'orientation (PCO) accueillent les enfants dont le développement suscite des inquiétudes, afin d'orienter les familles concernées vers les différents professionnels et structures compétents.",
   },
   {
-    title: "Conditions d'accès",
+    title: "Bilans et diagnostic",
     description:
-      "Sur orientation de votre médecin traitant, vous pouvez bénéficier de 8 séances remboursées par an.",
+      "Elles permettent de réaliser les bilans complémentaires pour établir un diagnostic le cas échéant, dans un délai raisonnable.",
   },
   {
-    title: "Remboursement",
+    title: "Interventions précoces",
     description:
-      "60 % pris en charge par l'Assurance Maladie, complété par votre mutuelle selon votre contrat.",
+      "Mise en œuvre des interventions pluridisciplinaires adéquates sans attendre le diagnostic, pour accompagner l'enfant dès les premiers signes.",
   },
   {
-    title: "Comment en bénéficier ?",
+    title: "Réseau de professionnels",
     description:
-      "Parlez-en à votre médecin traitant, qui vous orientera vers un psychologue partenaire du dispositif.",
+      "Elles s'appuient sur un réseau de professionnels libéraux conventionnés : psychologues, psychomotriciens, ergothérapeutes, en liaison avec médecins, orthophonistes, orthoptistes, kinésithérapeutes, etc.",
   },
 ] as const;
-
-const paymentBadges = ["Carte bancaire", "Chèque", "Dispositif PCO"] as const;
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -78,40 +64,23 @@ const fadeUp = {
 export function Tarifs() {
   return (
     <div className="tarifs-page">
-      <header className="tarifs-page-hero">
-        <div className="tarifs-page-hero-inner">
-          <motion.p className="tarifs-page-eyebrow" {...fadeUp}>
-            GITCH&apos; · Gichtenaere
-          </motion.p>
-          <motion.h1 className="tarifs-page-title" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }}>
-            <span className="tarifs-page-title-plain">Des tarifs </span>
-            <span className="tarifs-page-title-accent">transparents</span>
-          </motion.h1>
-          <motion.p className="tarifs-page-lead" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-            Consultations, bilans et accompagnements — des prix clairs, sans surprise. Paiement par carte
-            bancaire ou chèque.
-          </motion.p>
-          <motion.ul className="tarifs-page-badges" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }}>
-            {paymentBadges.map((badge) => (
-              <li key={badge} className="tarifs-page-badge">
-                {badge}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
-      </header>
-
       <section className="tarifs-page-pricing" aria-labelledby="tarifs-grid-title">
         <div className="tarifs-page-container">
           <motion.div className="tarifs-page-section-head" {...fadeUp}>
             <h2 id="tarifs-grid-title" className="tarifs-page-section-title">
-              <span className="tarifs-page-section-title-plain">Grille </span>
-              <span className="tarifs-page-section-title-accent">tarifaire</span>
+              <span className="tarifs-page-section-title-plain">Des tarifs </span>
+              <span className="tarifs-page-section-title-accent">transparents</span>
             </h2>
             <p className="tarifs-page-section-desc">
-              Tous les tarifs sont indiqués TTC. Les bilans s&apos;étalent sur plusieurs séances selon
-              votre situation.
+              Nos tarifs sont donnés à titre indicatif et peuvent être adaptés selon votre situation.
+              N'hésitez pas à en discuter directement avec votre praticien.
             </p>
+            <motion.div className="tarifs-page-badges-column" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }}>
+              <div className="tarifs-page-badge">Carte bancaire</div>
+              <div className="tarifs-page-badge">Espèce</div>
+              <div className="tarifs-page-badge">Dispositif PCO</div>
+              <div className="tarifs-page-badge">Dispositif Doctolib</div>
+            </motion.div>
           </motion.div>
 
           <div className="tarifs-page-grid">
@@ -154,12 +123,12 @@ export function Tarifs() {
               Remboursement
             </div>
             <h2 id="tarifs-pco-title" className="tarifs-page-section-title">
-              <span className="tarifs-page-section-title-plain">Prise en charge </span>
-              <span className="tarifs-page-section-title-accent">obligatoire</span>
+              <span className="tarifs-page-section-title-plain">Plateforme de coordination </span>
+              <span className="tarifs-page-section-title-accent">et d'orientation (PCO)</span>
             </h2>
             <p className="tarifs-page-section-desc">
-              Certaines consultations peuvent être partiellement remboursées dans le cadre du dispositif
-              PCO.
+              Un dispositif d'accompagnement précoce pour les enfants présentant des troubles du
+              neurodéveloppement.
             </p>
           </motion.div>
 
@@ -183,8 +152,16 @@ export function Tarifs() {
           <motion.aside className="tarifs-page-pco-note" {...fadeUp}>
             <CreditCard size={22} weight="duotone" aria-hidden />
             <p>
-              <strong>Bon à savoir :</strong> pour vérifier votre éligibilité au dispositif PCO,
-              contactez-nous ou parlez-en à votre médecin traitant.
+              <strong>Pour en savoir plus :</strong> consultez le site officiel{" "}
+              <a 
+                href="https://handicap.gouv.fr/les-plateformes-de-coordination-et-dorientation-pco"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#2a4538', fontWeight: 600, textDecoration: 'underline' }}
+              >
+                handicap.gouv.fr
+              </a>
+              {" "}ou contactez-nous pour vérifier votre éligibilité.
             </p>
           </motion.aside>
         </div>

@@ -152,6 +152,7 @@
   max-width: min(100%, 26ch);
   margin-inline: auto;
   margin-top: 0.35em;
+  margin-bottom: 0;
   min-height: 2.85em;
   font-family: var(--font-display);
   font-style: italic;
@@ -205,6 +206,56 @@
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 1px 18px rgba(13, 31, 20, 0.35);
+}
+
+/* Bulles cliquables */
+.hero-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 55rem;
+}
+
+.hero-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 0 1px 12px rgba(13, 31, 20, 0.3);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(13, 31, 22, 0.15);
+}
+
+.hero-bubble:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(13, 31, 22, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-bubbles {
+    gap: 0.75rem;
+  }
+  
+  .hero-bubble {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
 /* Boutons CTA */

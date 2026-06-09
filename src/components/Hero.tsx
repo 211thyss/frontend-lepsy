@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 
 const SERIF_PHRASES = [
-  "dans l'écoute et la confiance.",
-  "dans un cadre déontologique clair.",
-  "au rythme que vous vous donnez.",
-  "dans la relation thérapeutique.",
+  "L'enfant",
+  "L'adolescent",
+  "L'adulte",
+  "La personne vieillissante",
 ] as const;
 
 function prefersReducedMotion(): boolean {
@@ -63,10 +63,10 @@ export function Hero() {
 
           <div className="hero-layout">
             <header className="hero-inner">
-              <p className="hero-eyebrow">CABINET· Gichtenaere</p>
+              <p className="hero-eyebrow">CABINET · Gichtenaere</p>
 
               <h1 id="hero-title" className="hero-headline">
-                <span className="hero-headline-sans">Retrouver le calme</span>
+                <span className="hero-headline-sans">De l'enfance au grand âge</span>
                 <span className="hero-serif-line" aria-live="polite">
                   {SERIF_PHRASES.map((text, i) => (
                     <span
@@ -84,18 +84,24 @@ export function Hero() {
                 </span>
               </h1>
 
-              <p className="hero-desc">
-                Un cabinet de psychologie où vous pouvez poser vos mots, à votre rythme, dans un cadre
-                bienveillant et confidentiel — pour mieux comprendre ce que vous traversez et avancer
-                avec plus de clarté.
-              </p>
+              <div className="hero-bubbles">
+                <a href="/formats-accompagnement#bilan-tdah" className="hero-bubble">
+                  Bilan TDAH
+                </a>
+                <a href="/formats-accompagnement#bilan-autisme" className="hero-bubble">
+                  Bilan autisme
+                </a>
+                <a href="/formats-accompagnement#accompagnement-individuel" className="hero-bubble">
+                  Accompagnement individuel
+                </a>
+                <a href="/formats-accompagnement#consultation-memoire" className="hero-bubble">
+                  Consultation mémoire
+                </a>
+              </div>
 
               <div className="hero-cta-group">
                 <a className="hero-cta hero-cta--primary" href="/prendre-rdv">
                   Prendre rendez-vous
-                </a>
-                <a className="hero-cta hero-cta--secondary" href="#contact">
-                  Nous contacter
                 </a>
               </div>
             </header>
