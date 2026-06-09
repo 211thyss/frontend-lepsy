@@ -4,19 +4,19 @@ import "./Formats.css";
 const formats = [
   {
     id: 1,
-    title: "Individuel",
+    title: "Entretiens individuels, de couple et familiaux",
     subtitle: "Centré sur vous",
     description:
-      "Un accompagnement personnalisé pour aborder vos difficultés personnelles comme l'anxiété, la dépression ou le stress. Idéal si vous souhaitez mieux vous comprendre et développer des stratégies d'adaptation.",
+      "Enfants, adolescents, adultes et personnes âgées. Troubles du sommeil, anxiété, dépression, phobies, burn-out, TOC, deuil, difficultés scolaires ou relationnelles, traumatisme, et autres problématiques rencontrées au cours de la vie.",
     icon: "👤",
     variant: "light" as const,
   },
   {
     id: 2,
-    title: "Couples",
-    subtitle: "Centré sur votre relation",
+    title: "Bilans psychologiques et neuropsychologiques",
+    subtitle: "Évaluations complètes",
     description:
-      "Un espace pour améliorer la communication, renforcer la confiance et résoudre les conflits. Parfait si vous souhaitez améliorer votre connexion ou surmonter des difficultés ensemble.",
+      "Bilans psychologiques et neuropsychologiques pour enfants, adolescents, adultes et personnes vieillissantes — TDAH, autisme (TSA), bilan global, consultation mémoire et remédiation cognitive.",
     icon: "👥",
     variant: "dark" as const,
   },

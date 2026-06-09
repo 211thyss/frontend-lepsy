@@ -5,21 +5,23 @@ import "./TarifsSection.css";
 const tarifsHighlights = [
   {
     id: 1,
-    category: "Bilans",
+    category: "Consultations",
     items: [
-      { name: "Psychologique", price: "300€" },
-      { name: "Neuropsychologique", price: "350€" },
-      { name: "TDAH", price: "320€" },
+      { name: "Consultation initiale", price: "60€" },
+      { name: "Consultation de suivi", price: "60€" },
+      { name: "Visioconférence", price: "70€" },
+      { name: "Dimanche", price: "80€" },
     ],
     color: "green",
   },
   {
     id: 2,
-    category: "Suivis",
+    category: "Bilans",
     items: [
-      { name: "Adulte", price: "60€" },
-      { name: "Enfant/Ado", price: "55€" },
-      { name: "Couple", price: "80€" },
+      { name: "TDAH Enfant", price: "350€" },
+      { name: "TDAH Adulte", price: "200€" },
+      { name: "Bilan cognitif", price: "350€" },
+      { name: "Bilan complet", price: "500€" },
     ],
     color: "olive",
   },
@@ -41,7 +43,7 @@ export function TarifsSection() {
             <span className="tarifs-section-title-accent">transparents</span>
           </h2>
           <p className="tarifs-section-subtitle">
-            Consultations remboursables avec le dispositif PCO • Paiement CB et chèque acceptés
+            Consultations remboursables avec le dispositif PCO • Paiement CB, chèque et espèce acceptés
           </p>
         </motion.div>
 
