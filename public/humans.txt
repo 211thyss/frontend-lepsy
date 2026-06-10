@@ -1,0 +1,15 @@
+/* TEAM */
+Psychologue: Théo Gichtenaere
+Neuropsychologue: Cloé Gichtenaere
+Contact: contact@gichtenaere.fr
+Téléphone: +33 6 85 45 57 54
+Localisation: Saint-Maximin-la-Sainte-Baume, France
+
+/* SITE */
+Dernière mise à jour: 2026/06/10
+Langues: Français
+Doctype: HTML5
+Technologies: React, TypeScript, Vite, Node.js, Express, PostgreSQL
+Standards: HTML5, CSS3, ES2023
+Composants: Framer Motion, Phosphor Icons
+Hébergement: Dokploy

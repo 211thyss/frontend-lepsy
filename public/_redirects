@@ -1,0 +1,9 @@
+# Redirects pour Netlify/Vercel
+# Gestion des routes SPA
+
+/* /index.html 200
+
+# Force HTTPS
+http://gichtenaere.fr/* https://gichtenaere.fr/:splat 301!
+http://www.gichtenaere.fr/* https://gichtenaere.fr/:splat 301!
+https://www.gichtenaere.fr/* https://gichtenaere.fr/:splat 301!

@@ -1,0 +1,26 @@
+# robots.txt pour gichtenaere.fr
+# Autorise tous les robots d'indexation
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gichtenaere.fr/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
+
+# Désactiver l'indexation des pages admin
+User-agent: *
+Disallow: /admin/
+Disallow: /patient/
+Disallow: /api/
+
+# Autoriser explicitement les pages importantes
+Allow: /
+Allow: /tarifs
+Allow: /formats-accompagnement
+Allow: /prendre-rdv
+Allow: /blog
+Allow: /mentions-legales
+Allow: /politique-confidentialite

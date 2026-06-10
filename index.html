@@ -3,69 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2a4538" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     
     <!-- SEO Meta Tags -->
-    <title>Cabinet Gichtenaere - Cabinet de Psychologie | Théo & Cloé Gichtenaere</title>
-    <meta name="description" content="Cabinet de psychologie à Paris. Accompagnement individuel et couples par Théo Gichtenaere (Psychologue clinicien) et Cloé Gichtenaere (Neuropsychologue). Prenez rendez-vous." />
-    <meta name="keywords" content="psychologue, psychologie, thérapie, accompagnement psychologique, neuropsychologue, thérapie de couple, anxiété, dépression, Paris" />
+    <title>Cabinet Gichtenaere - Psychologue & Neuropsychologue | Saint-Maximin-la-Sainte-Baume</title>
+    <meta name="description" content="Cabinet de psychologie à Saint-Maximin. Bilans TDAH, autisme, consultations individuelles, de couple et familiales. Théo & Cloé Gichtenaere. Rendez-vous 7j/7." />
+    <meta name="keywords" content="psychologue Saint-Maximin, neuropsychologue Var, bilan TDAH, bilan autisme, thérapie de couple, consultation mémoire, psychologue enfant, burn-out, anxiété, dépression, PCO" />
     <meta name="author" content="Cabinet Gichtenaere" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href="https://gichtenaere.fr/" />
+    <link rel="author" href="/humans.txt" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="FR-83" />
+    <meta name="geo.placename" content="Saint-Maximin-la-Sainte-Baume" />
+    <meta name="geo.position" content="43.4536;5.8603" />
+    <meta name="ICBM" content="43.4536, 5.8603" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gichtenaere.fr/" />
-    <meta property="og:title" content="Cabinet Gichtenaere - Cabinet de Psychologie" />
-    <meta property="og:description" content="Un cabinet de psychologie où vous pouvez poser vos mots, à votre rythme, dans un cadre bienveillant et confidentiel." />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:title" content="Cabinet Gichtenaere - Psychologue & Neuropsychologue" />
+    <meta property="og:description" content="Bilans TDAH, autisme, consultations individuelles, de couple et familiales à Saint-Maximin. Ouvert 7j/7 de 7h30 à 21h." />
+    <meta property="og:image" content="https://gichtenaere.fr/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Cabinet Gichtenaere" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://gichtenaere.fr/" />
-    <meta property="twitter:title" content="Cabinet Gichtenaere - Cabinet de Psychologie" />
-    <meta property="twitter:description" content="Un cabinet de psychologie où vous pouvez poser vos mots, à votre rythme, dans un cadre bienveillant et confidentiel." />
-    <meta property="twitter:image" content="/logo.png" />
+    <meta property="twitter:title" content="Cabinet Gichtenaere - Psychologue & Neuropsychologue" />
+    <meta property="twitter:description" content="Bilans TDAH, autisme, consultations individuelles, de couple et familiales à Saint-Maximin. Ouvert 7j/7 de 7h30 à 21h." />
+    <meta property="twitter:image" content="https://gichtenaere.fr/logo.png" />
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      "name": "Cabinet Gichtenaere - Cabinet de Psychologie",
-      "description": "Cabinet de psychologie proposant des consultations individuelles et de couple",
+      "name": "Cabinet Gichtenaere",
+      "description": "Cabinet de psychologie proposant bilans TDAH, autisme, consultations individuelles, de couple et familiales",
       "url": "https://gichtenaere.fr",
       "logo": "https://gichtenaere.fr/logo.png",
       "image": "https://gichtenaere.fr/logo.png",
-      "telephone": "+33123456789",
+      "telephone": "+33685455754",
       "email": "contact@gichtenaere.fr",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Paris",
+        "streetAddress": "9 Avenue Albert 1er",
+        "addressLocality": "Saint-Maximin-la-Sainte-Baume",
+        "postalCode": "83470",
+        "addressRegion": "Var",
         "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.4536",
+        "longitude": "5.8603"
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "19:00"
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "07:30",
+        "closes": "21:00"
       },
-      "priceRange": "€€",
-      "medicalSpecialty": "Psychology",
+      "priceRange": "60€-500€",
+      "medicalSpecialty": ["Psychology", "Neuropsychology"],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Bilan TDAH Enfant",
+          "description": "Évaluation complète du trouble du déficit de l'attention"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Bilan TDAH Adulte",
+          "description": "Évaluation TDAH pour adultes"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Bilan autisme (TSA)",
+          "description": "Diagnostic des troubles du spectre autistique"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Consultation mémoire",
+          "description": "Évaluation spécialisée des troubles mnésiques"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Consultation individuelle",
+          "description": "Accompagnement personnalisé pour enfants, adolescents, adultes"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Thérapie de couple",
+          "description": "Accompagnement des couples"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Thérapie familiale",
+          "description": "Accompagnement familial"
+        }
+      ],
       "employee": [
         {
           "@type": "Person",
           "name": "Théo Gichtenaere",
-          "jobTitle": "Psychologue clinicien",
-          "description": "Spécialisé dans l'accompagnement des adultes et adolescents"
+          "jobTitle": "Psychologue",
+          "description": "Accompagnement d'enfants, adolescents, adultes et personnes âgées par des entretiens cliniques et des bilans psychologiques"
         },
         {
           "@type": "Person",
           "name": "Cloé Gichtenaere",
           "jobTitle": "Neuropsychologue",
-          "description": "Spécialisée dans les bilans neuropsychologiques et l'accompagnement personnalisé"
+          "description": "Accompagnement d'enfants, adolescents, adultes et personnes âgées par des bilans neuropsychologiques et des suivis adaptés"
         }
-      ]
+      ],
+      "paymentAccepted": ["Carte bancaire", "Espèce", "Chèque"],
+      "currenciesAccepted": "EUR",
+      "areaServed": {
+        "@type": "City",
+        "name": "Saint-Maximin-la-Sainte-Baume"
+      }
     }
     </script>
     
