@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Star, Refresh, Page, Home, VideoCamera, Calendar, Clock } from 'iconoir-react';
+import { Toast, ToastType } from './Toast';
 import './BookingWizard.css';
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
+
+interface ToastConfig {
+  show: boolean;
+  type: ToastType;
+  message: string;
+  description?: string;
+}
 
 interface BookingData {
   providerId: string;
@@ -34,6 +42,12 @@ export function BookingWizard() {
     rgpdConsent: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<ToastConfig>({
+    show: false,
+    type: 'success',
+    message: '',
+    description: '',
+  });
 
   const handleProviderSelect = (id: string, name: string) => {
     setBookingData(prev => ({ ...prev, providerId: id, providerName: name }));
@@ -63,13 +77,73 @@ export function BookingWizard() {
   const handleFinalSubmit = async () => {
     setIsSubmitting(true);
     try {
-      // TODO: Call API to create appointment
-      console.log('Booking data:', bookingData);
-      // Show success message
-      alert('Rendez-vous confirmé ! Vous allez recevoir un email de confirmation.');
+      // Prepare appointment data
+      const appointmentPayload = {
+        patientEmail: bookingData.email,
+        patientName: `${bookingData.firstName} ${bookingData.lastName}`,
+        patientPhone: bookingData.phone,
+        providerId: bookingData.providerId,
+        appointmentDate: bookingData.selectedDate 
+          ? new Date(`${bookingData.selectedDate.toISOString().split('T')[0]}T${bookingData.selectedTime}:00`).toISOString()
+          : new Date().toISOString(),
+        appointmentType: bookingData.consultationReason === 'assessment' ? 'neuropsychological' : 'individual',
+        format: bookingData.format,
+        consultationReason: bookingData.consultationReason,
+        consentDataProcessing: bookingData.rgpdConsent.toString(),
+      };
+
+      console.log('Sending appointment data:', appointmentPayload);
+
+      // Call API to create appointment
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/api/appointments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(appointmentPayload),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erreur lors de la création du rendez-vous');
+      }
+
+      const result = await response.json();
+      console.log('Appointment created:', result);
+      
+      // Show success toast
+      setToast({
+        show: true,
+        type: 'success',
+        message: 'Rendez-vous confirmé !',
+        description: `Un email de confirmation a été envoyé à ${bookingData.email}. Vérifiez votre boîte de réception.`,
+      });
+      
+      // Reset to step 1 after 3 seconds
+      setTimeout(() => {
+        setCurrentStep(1);
+        setBookingData({
+          providerId: '',
+          providerName: '',
+          consultationReason: '',
+          format: '',
+          selectedDate: null,
+          selectedTime: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          rgpdConsent: false,
+        });
+      }, 3000);
     } catch (error) {
       console.error('Booking error:', error);
-      alert('Erreur lors de la réservation. Veuillez réessayer.');
+      setToast({
+        show: true,
+        type: 'error',
+        message: 'Erreur lors de la réservation',
+        description: error instanceof Error ? error.message : 'Une erreur est survenue. Veuillez réessayer ou nous contacter.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -77,6 +151,14 @@ export function BookingWizard() {
 
   return (
     <div className="booking-wizard">
+      {toast.show && (
+        <Toast
+          type={toast.type}
+          message={toast.message}
+          description={toast.description}
+          onClose={() => setToast({ ...toast, show: false })}
+        />
+      )}
       <div className="booking-wizard-container">
         {/* Sidebar Progress */}
         <div className="booking-sidebar">
@@ -138,33 +220,75 @@ export function BookingWizard() {
 
 // Step 1: Provider Selection
 function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: string) => void }) {
+  const [providers, setProviders] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/api/providers`);
+        if (!response.ok) {
+          throw new Error('Erreur lors du chargement des praticiens');
+        }
+        const data = await response.json();
+        setProviders(data.providers || []);
+      } catch (err) {
+        console.error('Error fetching providers:', err);
+        setError('Impossible de charger les praticiens');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProviders();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="booking-step">
+        <h2 className="booking-step-title">Chargement...</h2>
+        <p className="booking-step-subtitle">Récupération des praticiens disponibles</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="booking-step">
+        <h2 className="booking-step-title">Erreur</h2>
+        <p className="booking-step-subtitle">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="booking-step">
       <h2 className="booking-step-title">Choisissez votre praticien</h2>
       <p className="booking-step-subtitle">Sélectionnez le psychologue avec qui vous souhaitez prendre rendez-vous</p>
       
       <div className="provider-cards">
-        <button className="provider-card" onClick={() => onSelect('theo-id', 'Théo Gichtenaere')}>
-          <div className="provider-card-image">
-            <img src="/providers/theo-avatar.jpg" alt="Théo Gichtenaere" />
-          </div>
-          <h3 className="provider-card-name">Théo Gichtenaere</h3>
-          <p className="provider-card-title">Psychologue clinicien</p>
-          <p className="provider-card-specialties">
-            Accompagnement d'enfants, adolescents, adultes et personnes âgées par des entretiens cliniques et des bilans psychologiques.
-          </p>
-        </button>
-
-        <button className="provider-card" onClick={() => onSelect('cloe-id', 'Cloé Gichtenaere')}>
-          <div className="provider-card-image">
-            <img src="/providers/cloe-avatar.jpeg" alt="Cloé Gichtenaere" />
-          </div>
-          <h3 className="provider-card-name">Cloé Gichtenaere</h3>
-          <p className="provider-card-title">Neuropsychologue</p>
-          <p className="provider-card-specialties">
-            Accompagnement d'enfants, adolescents, adultes et personnes âgées par des bilans neuropsychologiques et des suivis adaptés.
-          </p>
-        </button>
+        {providers.length === 0 ? (
+          <p>Aucun praticien disponible pour le moment</p>
+        ) : (
+          providers.map((provider) => (
+            <button
+              key={provider.id}
+              className="provider-card"
+              onClick={() => onSelect(provider.id, `${provider.first_name} ${provider.last_name}`)}
+            >
+              <div className="provider-card-image">
+                <img 
+                  src={provider.image_url || provider.avatar_url || '/providers/default-avatar.jpg'} 
+                  alt={`${provider.first_name} ${provider.last_name}`} 
+                />
+              </div>
+              <h3 className="provider-card-name">{provider.first_name} {provider.last_name}</h3>
+              <p className="provider-card-title">{provider.title}</p>
+              <p className="provider-card-specialties">{provider.bio || 'Accompagnement psychologique personnalisé'}</p>
+            </button>
+          ))
+        )}
       </div>
     </div>
   );
