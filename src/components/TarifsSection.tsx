@@ -43,7 +43,7 @@ export function TarifsSection() {
             <span className="tarifs-section-title-accent">transparents</span>
           </h2>
           <p className="tarifs-section-subtitle">
-            Consultations remboursables avec le dispositif PCO • Paiement CB, chèque et espèce acceptés
+            Paiement CB, chèque et espèce acceptés
           </p>
         </motion.div>
 

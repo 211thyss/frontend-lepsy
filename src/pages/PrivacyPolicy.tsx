@@ -28,7 +28,7 @@ export function PrivacyPolicy() {
             <p><strong>Cabinet CABINETGichtenaere</strong></p>
             <p>Représenté par : Théo Gichtenaere et Cloé Gichtenaere</p>
             <p>Email : contact@gichtenaere.fr</p>
-            <p>Téléphone : +33 1 23 45 67 89</p>
+            <p>Téléphone : +33 6 85 45 57 54</p>
             <p>Adresse : [À définir - Cabinet en cours d'ouverture]</p>
           </div>
         </section>
@@ -212,7 +212,7 @@ export function PrivacyPolicy() {
           </p>
           <div className="legal-info-box">
             <p>Email : <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p>Téléphone : <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+            <p>Téléphone : <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
           </div>
         </section>
       </div>

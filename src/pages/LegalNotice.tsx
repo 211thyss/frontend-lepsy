@@ -13,7 +13,7 @@ export function LegalNotice() {
             <p><strong>Raison sociale :</strong> Cabinet CABINETGichtenaere</p>
             <p><strong>Forme juridique :</strong> [À compléter - Ex: Entreprise individuelle / SELARL]</p>
             <p><strong>Adresse :</strong> [À définir - Cabinet en cours d'ouverture]</p>
-            <p><strong>Téléphone :</strong> <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
             <p><strong>Email :</strong> <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
             <p><strong>SIRET :</strong> [À compléter]</p>
           </div>
@@ -242,7 +242,7 @@ export function LegalNotice() {
           </p>
           <div className="legal-info-box">
             <p>Email : <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p>Téléphone : <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+            <p>Téléphone : <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
             <p>Adresse : [À définir - Cabinet en cours d'ouverture]</p>
           </div>
         </section>
