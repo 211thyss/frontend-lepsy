@@ -18,7 +18,7 @@ const providers = [
     title: "Neuropsychologue",
     description: "Neuropsychologue, j'accompagne enfants, adultes et personnes âgées dans la compréhension de leur fonctionnement cognitif, émotionnel et comportemental. Je propose des bilans neuropsychologiques et des suivis (remédiation cognitive, TCC) afin de mieux comprendre votre fonctionnement, répondre à vos questionnements et donner du sens à vos difficultés.",
     avatar: "/providers/cloe-avatar.jpeg",
-    image: "/providers/cloe-full.jpg",
+    image: "/providers/cloe-full.png",
   },
 ] as const;
 
