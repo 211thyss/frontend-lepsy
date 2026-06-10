@@ -157,7 +157,7 @@ function Step1ProviderSelection({ onSelect }: { onSelect: (id: string, name: str
 
         <button className="provider-card" onClick={() => onSelect('cloe-id', 'Cloé Gichtenaere')}>
           <div className="provider-card-image">
-            <img src="/providers/cloe-avatar.jpg" alt="Cloé Gichtenaere" />
+            <img src="/providers/cloe-avatar.jpeg" alt="Cloé Gichtenaere" />
           </div>
           <h3 className="provider-card-name">Cloé Gichtenaere</h3>
           <p className="provider-card-title">Neuropsychologue</p>
