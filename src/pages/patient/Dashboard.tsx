@@ -29,6 +29,9 @@ export function PatientDashboard() {
   const fetchUpcomingAppointments = async () => {
     try {
       setIsLoading(true);
+      console.log('🔐 Token:', token ? 'présent' : 'absent');
+      console.log('👤 User:', user);
+      
       const response = await fetch(`${API_URL}/api/patient/appointments?limit=3`, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -36,12 +39,18 @@ export function PatientDashboard() {
         },
       });
 
+      console.log('📊 Response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('✅ Appointments fetched:', data.appointments?.length || 0);
         setAppointments(data.appointments || []);
+      } else {
+        const error = await response.json();
+        console.error('❌ Fetch error:', error);
       }
     } catch (error) {
-      console.error('Fetch appointments error:', error);
+      console.error('❌ Fetch appointments error:', error);
     } finally {
       setIsLoading(false);
     }
