@@ -80,6 +80,13 @@ export function Contact() {
                   de 7h30 à 21h
                 </p>
               </div>
+
+              <div className="contact-detail-item">
+                <h3 className="contact-detail-label">Accessibilité</h3>
+                <p className="contact-detail-text">
+                  Ascenseur / Accessibilité physique PMR
+                </p>
+              </div>
             </div>
 
             <div className="contact-map">
