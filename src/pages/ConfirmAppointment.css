@@ -1,0 +1,143 @@
+.confirm-appointment-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ebe5 0%, #f5f0e8 50%, #e8ebe5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.confirm-appointment-container {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(42, 69, 56, 0.15);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.confirm-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.confirm-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.confirm-status.loading .confirm-icon {
+  color: #5a6b4a;
+}
+
+.confirm-status.success .confirm-icon {
+  color: #4caf50;
+}
+
+.confirm-status.error .confirm-icon {
+  color: #f44336;
+}
+
+.confirm-status h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e2e19;
+  margin: 0;
+}
+
+.confirm-status p {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.confirm-next-steps {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.next-step-text {
+  font-size: 16px;
+  color: #1e2e19;
+  line-height: 1.6;
+}
+
+.redirect-text {
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+}
+
+.confirm-btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.confirm-btn.primary {
+  background: linear-gradient(135deg, #5a6b4a 0%, #4a6630 100%);
+  color: white;
+}
+
+.confirm-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 107, 74, 0.3);
+}
+
+.confirm-btn.secondary {
+  background: transparent;
+  color: #5a6b4a;
+  border: 2px solid #5a6b4a;
+}
+
+.confirm-btn.secondary:hover {
+  background: #5a6b4a;
+  color: white;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .confirm-appointment-container {
+    padding: 40px 20px;
+  }
+
+  .confirm-status h1 {
+    font-size: 24px;
+  }
+
+  .confirm-status p {
+    font-size: 16px;
+  }
+
+  .confirm-icon {
+    width: 60px;
+    height: 60px;
+  }
+}

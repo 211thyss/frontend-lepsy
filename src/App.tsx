@@ -31,6 +31,7 @@ import { Blog } from "./pages/Blog";
 import { ArticleDetail } from "./pages/ArticleDetail";
 import { Tarifs } from "./pages/Tarifs";
 import { FormatsAccompagnement } from "./pages/FormatsAccompagnement";
+import { ConfirmAppointment } from "./pages/ConfirmAppointment";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -73,6 +74,8 @@ export default function App() {
       setCurrentPage("users");
     } else if (path === "/prendre-rdv" || path === "/booking") {
       setCurrentPage("booking");
+    } else if (path === "/confirm-appointment") {
+      setCurrentPage("confirm-appointment");
     } else if (path === "/blog" || path === "/actualites") {
       setCurrentPage("blog");
     } else if (path.startsWith("/blog/")) {
@@ -165,6 +168,16 @@ export default function App() {
       <AuthProvider>
         <Navbar />
         <BookingWizard />
+        <Footer />
+      </AuthProvider>
+    );
+  }
+
+  if (currentPage === "confirm-appointment") {
+    return (
+      <AuthProvider>
+        <Navbar />
+        <ConfirmAppointment />
         <Footer />
       </AuthProvider>
     );

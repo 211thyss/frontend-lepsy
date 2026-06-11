@@ -27,7 +27,7 @@ export function Footer() {
             <ul className="footer-list">
               <li><a href="tel:+33685455754" className="footer-link">+33 6 85 45 57 54</a></li>
               <li><a href="mailto:contact@gichtenaere.fr" className="footer-link">contact@gichtenaere.fr</a></li>
-              <li><span className="footer-text">Cabinet en cours d'ouverture</span></li>
+              <li><span className="footer-text">9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</span></li>
             </ul>
           </div>
         </div>

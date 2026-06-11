@@ -29,7 +29,7 @@ export function PrivacyPolicy() {
             <p>Représenté par : Théo Gichtenaere et Cloé Gichtenaere</p>
             <p>Email : contact@gichtenaere.fr</p>
             <p>Téléphone : +33 6 85 45 57 54</p>
-            <p>Adresse : [À définir - Cabinet en cours d'ouverture]</p>
+            <p>Adresse : 9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
           </div>
         </section>
 

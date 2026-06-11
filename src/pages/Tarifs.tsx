@@ -78,7 +78,7 @@ export function Tarifs() {
             <motion.div className="tarifs-page-badges-column" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.05 }}>
               <div className="tarifs-page-badge">Carte bancaire</div>
               <div className="tarifs-page-badge">Espèce</div>
-              <div className="tarifs-page-badge">Dispositif PCO</div>
+              <div className="tarifs-page-badge">Chèque</div>
               <div className="tarifs-page-badge">Dispositif Doctolib</div>
             </motion.div>
           </motion.div>

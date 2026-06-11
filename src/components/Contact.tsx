@@ -77,7 +77,6 @@ export function Contact() {
               <div className="contact-detail-item">
                 <h3 className="contact-detail-label">Horaires</h3>
                 <p className="contact-detail-text">
-                  Du Lundi au dimanche<br />
                   de 7h30 à 21h
                 </p>
               </div>
