@@ -63,10 +63,10 @@ export function FormatsAccompagnement() {
                   </p>
                 </div>
 
-                <div className="formats-bilan-card" id="consultation-memoire">
-                  <h4 className="formats-bilan-title">Consultation mémoire</h4>
+                <div className="formats-bilan-card" id="bilan-cognitif">
+                  <h4 className="formats-bilan-title">Bilan cognitif (Test de QI, MDPH,... )</h4>
                   <p className="formats-bilan-desc">
-                    Évaluation spécialisée des troubles mnésiques et accompagnement personnalisé.
+                    Évaluation spécialisée des capacités cognitives et accompagnement personnalisé.
                   </p>
                 </div>
 

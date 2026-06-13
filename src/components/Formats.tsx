@@ -16,7 +16,7 @@ const formats = [
     title: "Bilans psychologiques et neuropsychologiques",
     subtitle: "Évaluations complètes",
     description:
-      "Bilans psychologiques et neuropsychologiques pour enfants, adolescents, adultes et personnes vieillissantes — TDAH, autisme (TSA), bilan global, consultation mémoire et remédiation cognitive.",
+      "Bilans psychologiques et neuropsychologiques pour enfants, adolescents, adultes et personnes vieillissantes — TDAH, autisme (TSA), bilan global, bilan cognitif et remédiation cognitive.",
     icon: "👥",
     variant: "dark" as const,
   },

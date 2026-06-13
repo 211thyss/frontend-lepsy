@@ -94,8 +94,8 @@ export function Hero() {
                 <a href="/formats-accompagnement#accompagnement-individuel" className="hero-bubble">
                   Accompagnement individuel
                 </a>
-                <a href="/formats-accompagnement#consultation-memoire" className="hero-bubble">
-                  Consultation mémoire
+                <a href="/formats-accompagnement#bilan-cognitif" className="hero-bubble">
+                  Bilan cognitif (Test de QI, MDPH,... )
                 </a>
               </div>
 

@@ -24,7 +24,7 @@ const tarifs = [
       { name: "Bilan attentionnel TDAH — Enfant", price: "350€", duration: "Plusieurs séances" },
       { name: "Bilan attentionnel TDAH — Adulte", price: "200€", duration: "Plusieurs séances" },
       { name: "Bilan cognitif (test de QI, dossier MDPH, etc.)", price: "350€", duration: "Plusieurs séances" },
-      { name: "Bilan consultation mémoire", price: "350€", duration: "Plusieurs séances" },
+      { name: "Bilan cognitif (Test de QI, MDPH,... )", price: "350€", duration: "Plusieurs séances" },
       { name: "Bilan fonctionnel (cognition sociale, mémoire, attention, etc.)", price: "350€", duration: "Plusieurs séances" },
       { name: "Bilan neuropsychologique / psychologique complet", price: "500€", duration: "Plusieurs séances" },
     ],

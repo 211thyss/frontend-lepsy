@@ -1,6 +1,7 @@
 /* TEAM */
 Psychologue: Théo Gichtenaere
 Neuropsychologue: Cloé Gichtenaere
+SIRET: 10605784700019
 Contact: contact@gichtenaere.fr
 Téléphone: +33 7 59 95 55 05
 Localisation: Saint-Maximin-la-Sainte-Baume, France
