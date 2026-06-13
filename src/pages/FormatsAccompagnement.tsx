@@ -1,12 +1,8 @@
-import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
 import "./FormatsAccompagnement.css";
 
 export function FormatsAccompagnement() {
   return (
-    <>
-      <Navbar />
-      <main className="formats-accompagnement-page">
+    <main className="formats-accompagnement-page">
         <div className="formats-accompagnement-container">
           <header className="formats-accompagnement-header">
             <h1 className="formats-accompagnement-title">
@@ -124,7 +120,5 @@ export function FormatsAccompagnement() {
           </section>
         </div>
       </main>
-      <Footer />
-    </>
   );
 }

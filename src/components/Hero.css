@@ -4,10 +4,13 @@
 }
 
 .hero-sticky {
+  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   min-height: 100vh;
   min-height: 100dvh;
+  -webkit-transform: translateZ(0); /* Force hardware acceleration on Safari */
+  transform: translateZ(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
