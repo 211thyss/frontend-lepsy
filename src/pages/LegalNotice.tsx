@@ -10,12 +10,12 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>1. Éditeur du site</h2>
           <div className="legal-info-box">
-            <p><strong>Raison sociale :</strong> Cabinet CABINETGichtenaere</p>
-            <p><strong>Forme juridique :</strong> [À compléter - Ex: Entreprise individuelle / SELARL]</p>
+            <p><strong>Raison sociale :</strong> Théo Gichtenaere - Psychologue</p>
+            <p><strong>Forme juridique :</strong> Entreprise individuelle</p>
             <p><strong>Adresse :</strong> 9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
-            <p><strong>Téléphone :</strong> <a href="tel:+33685455754">+33 7 59 95 55 05</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
             <p><strong>Email :</strong> <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p><strong>SIRET :</strong> [À compléter]</p>
+            <p><strong>SIRET :</strong> 10605784700019</p>
           </div>
         </section>
 
@@ -25,20 +25,16 @@ export function LegalNotice() {
           <h3>2.1 Théo Gichtenaere - Psychologue clinicien</h3>
           <div className="legal-info-box">
             <p><strong>Titre :</strong> Psychologue clinicien</p>
-            <p><strong>Numéro ADELI :</strong> [À compléter - Format: XX XXXXXXXX X]</p>
+            <p><strong>Numéro ADELI :</strong> À vérifier auprès de l'ARS</p>
             <p><strong>Diplôme :</strong> Master 2 en Psychologie Clinique</p>
-            <p><strong>Université :</strong> [À compléter]</p>
-            <p><strong>Année d'obtention :</strong> [À compléter]</p>
             <p><strong>Spécialisation :</strong> Thérapies cognitivo-comportementales, accompagnement des adultes et adolescents</p>
           </div>
 
           <h3>2.2 Cloé Gichtenaere - Neuropsychologue</h3>
           <div className="legal-info-box">
             <p><strong>Titre :</strong> Neuropsychologue</p>
-            <p><strong>Numéro ADELI :</strong> [À compléter - Format: XX XXXXXXXX X]</p>
+            <p><strong>Numéro ADELI :</strong> À vérifier auprès de l'ARS</p>
             <p><strong>Diplôme :</strong> Master 2 en Neuropsychologie</p>
-            <p><strong>Université :</strong> [À compléter]</p>
-            <p><strong>Année d'obtention :</strong> [À compléter]</p>
             <p><strong>Spécialisation :</strong> Bilans neuropsychologiques, accompagnement personnalisé</p>
           </div>
 
@@ -54,11 +50,8 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>3. Assurance professionnelle</h2>
           <div className="legal-info-box">
-            <p><strong>Compagnie d'assurance :</strong> [À compléter - Ex: MACSF, Allianz, AXA]</p>
-            <p><strong>Numéro de police :</strong> [À compléter]</p>
-            <p><strong>Adresse de l'assureur :</strong> [À compléter]</p>
+            <p><strong>Couverture :</strong> Responsabilité civile professionnelle</p>
             <p><strong>Couverture géographique :</strong> France métropolitaine</p>
-            <p><strong>Garanties :</strong> Responsabilité civile professionnelle</p>
           </div>
           <p>
             Conformément à l'article L.1142-2 du Code de la santé publique, les psychologues sont tenus 
@@ -125,23 +118,28 @@ export function LegalNotice() {
         <section className="legal-section">
           <h2>7. Hébergement du site</h2>
           <div className="legal-info-box">
-            <p><strong>Hébergeur :</strong> [À compléter - Ex: OVH, Vercel, Netlify]</p>
-            <p><strong>Raison sociale :</strong> [À compléter]</p>
-            <p><strong>Adresse :</strong> [À compléter]</p>
-            <p><strong>Téléphone :</strong> [À compléter]</p>
-            <p><strong>Site web :</strong> [À compléter]</p>
+            <p><strong>Hébergeur :</strong> Contabo GmbH</p>
+            <p><strong>Adresse :</strong> Aschauer Straße 32a, 81549 München, Germany</p>
+            <p><strong>Site web :</strong> <a href="https://contabo.com" target="_blank" rel="noopener noreferrer">www.contabo.com</a></p>
+          </div>
+          <div className="legal-info-box">
+            <p><strong>Nom de domaine :</strong> LWS (Ligne Web Services)</p>
+            <p><strong>Raison sociale :</strong> LWS SARL</p>
+            <p><strong>Adresse :</strong> 4 Rue Galvani, 75017 Paris, France</p>
+            <p><strong>Site web :</strong> <a href="https://www.lws.fr" target="_blank" rel="noopener noreferrer">www.lws.fr</a></p>
           </div>
           <p className="legal-warning">
-            ℹ️ L'hébergement des données de santé nécessite une certification HDS 
-            (Hébergeur de Données de Santé) conformément à l'article L.1111-8 du Code de la santé publique.
+            ℹ️ L'hébergement des données de santé est assuré sur un VPS dédié avec infrastructure sécurisée et chiffrée.
           </p>
         </section>
 
         <section className="legal-section">
           <h2>8. Conception et développement</h2>
           <div className="legal-info-box">
-            <p><strong>Développement :</strong> [À compléter]</p>
-            <p><strong>Design :</strong> [À compléter]</p>
+            <p><strong>Développement :</strong> Interne - Cabinet Gichtenaere</p>
+            <p><strong>Design :</strong> Interne - Cabinet Gichtenaere</p>
+            <p><strong>Technologies :</strong> React, TypeScript, Node.js, PostgreSQL</p>
+            <p><strong>Infrastructure :</strong> Dokploy (auto-hébergé sur VPS Contabo)</p>
           </div>
         </section>
 
@@ -194,14 +192,11 @@ export function LegalNotice() {
 
         <section className="legal-section">
           <h2>12. Tarifs et modalités de paiement</h2>
-          <div className="legal-info-box">
-            <p><strong>Consultation individuelle :</strong> [À compléter] €</p>
-            <p><strong>Consultation de couple :</strong> [À compléter] €</p>
-            <p><strong>Bilan neuropsychologique :</strong> [À compléter] €</p>
-            <p><strong>Durée de consultation :</strong> [À compléter] minutes</p>
-          </div>
           <p>
-            <strong>Moyens de paiement acceptés :</strong> Espèces, chèque, virement bancaire, [carte bancaire si applicable]
+            Les tarifs sont consultables sur notre <a href="/tarifs">page Tarifs</a>.
+          </p>
+          <p>
+            <strong>Moyens de paiement acceptés :</strong> Espèces, Chèque, Carte bancaire
           </p>
           <p>
             <strong>Remboursement :</strong> Les consultations avec un psychologue ne sont généralement pas 
@@ -226,13 +221,12 @@ export function LegalNotice() {
           <h2>14. Médiation</h2>
           <p>
             Conformément à l'article L.612-1 du Code de la consommation, en cas de litige, vous pouvez 
-            recourir gratuitement à un médiateur de la consommation :
+            recourir gratuitement à un médiateur de la consommation.
           </p>
-          <div className="legal-info-box">
-            <p><strong>Médiateur de la consommation :</strong> [À compléter]</p>
-            <p><strong>Adresse :</strong> [À compléter]</p>
-            <p><strong>Site web :</strong> [À compléter]</p>
-          </div>
+          <p>
+            Pour toute information complémentaire concernant la médiation, vous pouvez consulter le site : 
+            <a href="https://www.economie.gouv.fr/mediation-conso" target="_blank" rel="noopener noreferrer"> www.economie.gouv.fr/mediation-conso</a>
+          </p>
         </section>
 
         <section className="legal-section">
@@ -242,7 +236,7 @@ export function LegalNotice() {
           </p>
           <div className="legal-info-box">
             <p>Email : <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p>Téléphone : <a href="tel:+33685455754">+33 7 59 95 55 05</a></p>
+            <p>Téléphone : <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
             <p>Adresse : 9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
           </div>
         </section>
