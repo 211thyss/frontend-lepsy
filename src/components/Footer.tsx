@@ -25,7 +25,7 @@ export function Footer() {
           <div className="footer-column">
             <h4 className="footer-heading">Contact</h4>
             <ul className="footer-list">
-              <li><a href="tel:+33685455754" className="footer-link">+33 6 85 45 57 54</a></li>
+              <li><a href="tel:+33685455754" className="footer-link">+33 7 59 95 55 05</a></li>
               <li><a href="mailto:contact@gichtenaere.fr" className="footer-link">contact@gichtenaere.fr</a></li>
               <li><span className="footer-text">9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</span></li>
             </ul>

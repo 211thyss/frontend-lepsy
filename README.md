@@ -192,7 +192,7 @@ Ce projet est privé et destiné au Cabinet CABINETGichtenaere.
 
 **Cabinet CABINETGichtenaere**
 - Email: contact@gichtenaere.fr
-- Téléphone: +33 1 23 45 67 89
+- Téléphone: +33 07 59 95 55 05
 - Site web: https://gichtenaere.fr
 
 ## 📄 Licence

@@ -13,7 +13,7 @@ export function LegalNotice() {
             <p><strong>Raison sociale :</strong> Cabinet CABINETGichtenaere</p>
             <p><strong>Forme juridique :</strong> [À compléter - Ex: Entreprise individuelle / SELARL]</p>
             <p><strong>Adresse :</strong> 9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
-            <p><strong>Téléphone :</strong> <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+33685455754">+33 7 59 95 55 05</a></p>
             <p><strong>Email :</strong> <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
             <p><strong>SIRET :</strong> [À compléter]</p>
           </div>
@@ -242,7 +242,7 @@ export function LegalNotice() {
           </p>
           <div className="legal-info-box">
             <p>Email : <a href="mailto:contact@gichtenaere.fr">contact@gichtenaere.fr</a></p>
-            <p>Téléphone : <a href="tel:+33685455754">+33 6 85 45 57 54</a></p>
+            <p>Téléphone : <a href="tel:+33685455754">+33 7 59 95 55 05</a></p>
             <p>Adresse : 9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
           </div>
         </section>

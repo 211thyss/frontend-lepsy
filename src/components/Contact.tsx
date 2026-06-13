@@ -60,7 +60,7 @@ export function Contact() {
                 <h3 className="contact-detail-label">Téléphone</h3>
                 <p className="contact-detail-text">
                   <a href="tel:+33685455754" className="contact-link">
-                    +33 6 85 45 57 54
+                    +33 7 59 95 55 05
                   </a>
                 </p>
               </div>

@@ -345,7 +345,7 @@ function Step3Format({ onSelect, onBack }: { onSelect: (format: 'in_person' | 'v
             <Home className="format-icon-svg" strokeWidth={2} />
           </div>
           <h3 className="format-title">Présentiel</h3>
-          <p className="format-desc">Au cabinet, 123 rue Example, Paris</p>
+          <p className="format-desc">9 Avenue Albert 1er, 83470 Saint-Maximin-la-Sainte-Baume</p>
           <div className="format-badge">Recommandé</div>
         </button>
 
